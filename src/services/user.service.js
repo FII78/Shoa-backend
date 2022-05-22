@@ -27,3 +27,13 @@ const createUser = async (userBody) => {
   const users = await User.paginate(filter, options);
   return users;
 };
+
+/**
+ * Get user by id
+ * @param {ObjectId} id
+ * @returns {Promise<User>}
+ */
+ const getUserById = async (id) => {
+  return User.findById(id);
+};
+
