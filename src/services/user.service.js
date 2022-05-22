@@ -37,3 +37,12 @@ const createUser = async (userBody) => {
   return User.findById(id);
 };
 
+/**
+ * Get user by email
+ * @param {string} email
+ * @returns {Promise<User>}
+ */
+ const getUserByEmail = async (email) => {
+  return User.findOne({ email });
+};
+
