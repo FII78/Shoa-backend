@@ -4,7 +4,15 @@ const validate = require('../../middlewares/validate');
 const userValidation = require('../../validations/user.validation');
 const userController = require('../../controllers/user.controller');
 
+const router = express.Router();
 
+router
+   
+
+router
+   
+
+module.exports = router;
 
 /**
  * @swagger
