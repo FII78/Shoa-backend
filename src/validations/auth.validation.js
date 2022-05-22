@@ -27,3 +27,11 @@ const refreshTokens = {
     refreshToken: Joi.string().required(),
   }),
 };
+
+
+const forgotPassword = {
+  body: Joi.object().keys({
+    email: Joi.string().email().required(),
+  }),
+};
+
