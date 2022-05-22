@@ -8,7 +8,11 @@ const swaggerDef = {
     version 
       
   },
-  
+  servers: [
+    {
+      url: `http://localhost:${config.port}/v1`,
+    },
+  ],
 };
 
 module.exports = swaggerDef;
