@@ -17,3 +17,10 @@ router.post('/verify-email', validate(authValidation.verifyEmail), authControlle
 
 module.exports = router;
 
+/**
+ * @swagger
+ * tags:
+ *   name: Auth
+ *   description: Authentication
+ */
+
