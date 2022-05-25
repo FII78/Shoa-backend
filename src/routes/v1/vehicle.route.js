@@ -59,29 +59,63 @@ module.exports = router;
  *             type: object
  *             required:
  *               - name
- *               - email
- *               - password
- *               - role
+ *               - type
+ *               - model
+ *               - yearofMan
+ *               - noofcylinders
+ *               - horsepower
+ *               - cubicCapacity
+ *               - color
+ *               - carryingCapacity
+ *               - status
+ *               - regNum
+ *               - engineNum
+ *               - ChassisNum
+ *               - PlateNum
  *             properties:
  *               name:
  *                 type: string
- *               email:
+ *               type:
  *                 type: string
- *                 format: email
- *                 description: must be unique
- *               password:
+ *               model:
  *                 type: string
- *                 format: password
- *                 minLength: 8
- *                 description: At least one number and one letter
- *               role:
- *                  type: string
- *                  enum: [Vehicle, admin]
+ *               yearofMan:
+ *                 type: Date
+ *               noofcylinders:
+ *                 type: number
+ *               horsepower:
+ *                 type: number
+ *               cubicCapacity:
+ *                 type: number
+ *               color:
+ *                 type: string
+ *               carryingCapacity:
+ *                 type: number
+ *               status:
+ *                 type: string
+ *               regNum:
+ *                 type: number
+ *               engineNum:
+ *                 type: number
+ *               ChassisNum:
+ *                 type: number
+ *               PlateNum:
+ *                 type: number
  *             example:
- *               name: fake name
- *               email: fake@example.com
- *               password: password1
- *               role: Vehicle
+ *               name: "vehicle name"
+ *               type: "vehicle type"
+ *               model: "vehicle model"
+ *               yearofMan: "2000-10-09"
+ *               noofcylinders: 12
+ *               horsepower: 12
+ *               cubicCapacity: 12 
+ *               color: "red"
+ *               carryingCapacity: 12 
+ *               status: Active
+ *               regNum: 100
+ *               engineNum: 11
+ *               ChassisNum: 11
+ *               PlateNum: 111
  *     responses:
  *       "201":
  *         description: Created
