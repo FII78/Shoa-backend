@@ -19,6 +19,16 @@ components:
         name: fake name
         role: user
 
+    Vehicle:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        
+       
+
     Token:
       type: object
       properties:
