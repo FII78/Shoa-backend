@@ -13,6 +13,10 @@ describe('User model', () => {
       };
     });
 
+    test('should correctly validate a valid user', async () => {
+        await expect(new User(newUser).validate()).resolves.toBeUndefined();
+      });
+  
    
   });
 });
