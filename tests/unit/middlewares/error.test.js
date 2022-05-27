@@ -129,8 +129,40 @@ describe('Error middlewares', () => {
             config.env = process.env.NODE_ENV;
           });
       
-
-        
+          test('should send internal server error status and message if in production mode and error is not operational', () => {
+            config.env = 'production';
+            const error = new ApiError(httpStatus.BAD_REQUEST, 'Any error', false);
+            const res = httpMocks.createResponse();
+            const sendSpy = jest.spyOn(res, 'send');
+      
+            errorHandler(error, httpMocks.createRequest(), res);
+      
+            expect(sendSpy).toHaveBeenCalledWith(
+              expect.objectContaining({
+                code: httpStatus.INTERNAL_SERVER_ERROR,
+                message: httpStatus[httpStatus.INTERNAL_SERVER_ERROR],
+              })
+            );
+            expect(res.locals.errorMessage).toBe(error.message);
+            config.env = process.env.NODE_ENV;
+          });
+      
+          test('should preserve original error status and message if in production mode and error is operational', () => {
+            config.env = 'production';
+            const error = new ApiError(httpStatus.BAD_REQUEST, 'Any error');
+            const res = httpMocks.createResponse();
+            const sendSpy = jest.spyOn(res, 'send');
+      
+            errorHandler(error, httpMocks.createRequest(), res);
+      
+            expect(sendSpy).toHaveBeenCalledWith(
+              expect.objectContaining({
+                code: error.statusCode,
+                message: error.message,
+              })
+            );
+            config.env = process.env.NODE_ENV;
+          });
       });
     });
     
