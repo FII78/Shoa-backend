@@ -16,7 +16,23 @@ describe('Error middlewares', () => {
     
           expect(next).toHaveBeenCalledWith(error);
         });
-    
+        
+        test('should convert an Error to ApiError and preserve its status and message', () => {
+            const error = new Error('Any error');
+            error.statusCode = httpStatus.BAD_REQUEST;
+            const next = jest.fn();
+      
+            errorConverter(error, httpMocks.createRequest(), httpMocks.createResponse(), next);
+      
+            expect(next).toHaveBeenCalledWith(expect.any(ApiError));
+            expect(next).toHaveBeenCalledWith(
+              expect.objectContaining({
+                statusCode: error.statusCode,
+                message: error.message,
+                isOperational: false,
+              })
+            );
+          });
     
     
     })   
