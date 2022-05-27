@@ -99,14 +99,15 @@ describe('Error middlewares', () => {
       });
     });
   
+    describe('Error handler', () => {
+        beforeEach(() => {
+          jest.spyOn(logger, 'error').mockImplementation(() => {});
+        });
     
 
 
-
-
-
-
-    
-      
+        
+        
+      });
     });
     
