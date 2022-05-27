@@ -105,8 +105,18 @@ describe('Error middlewares', () => {
         });
     
 
+        test('should send proper error response and put the error message in res.locals', () => {
+            const error = new ApiError(httpStatus.BAD_REQUEST, 'Any error');
+            const res = httpMocks.createResponse();
+            const sendSpy = jest.spyOn(res, 'send');
+      
+            errorHandler(error, httpMocks.createRequest(), res);
+      
+            expect(sendSpy).toHaveBeenCalledWith(expect.objectContaining({ code: error.statusCode, message: error.message }));
+            expect(res.locals.errorMessage).toBe(error.message);
+          });
+      
 
-        
         
       });
     });
