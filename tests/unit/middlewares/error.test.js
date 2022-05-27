@@ -16,7 +16,7 @@ describe('Error middlewares', () => {
     
           expect(next).toHaveBeenCalledWith(error);
         });
-        
+
         test('should convert an Error to ApiError and preserve its status and message', () => {
             const error = new Error('Any error');
             error.statusCode = httpStatus.BAD_REQUEST;
@@ -33,6 +33,31 @@ describe('Error middlewares', () => {
               })
             );
           });
+    test('should convert an Error without status to ApiError with status 500', () => {
+      const error = new Error('Any error');
+      const next = jest.fn();
+
+      errorConverter(error, httpMocks.createRequest(), httpMocks.createResponse(), next);
+
+      expect(next).toHaveBeenCalledWith(expect.any(ApiError));
+      expect(next).toHaveBeenCalledWith(
+        expect.objectContaining({
+          statusCode: httpStatus.INTERNAL_SERVER_ERROR,
+          message: error.message,
+          isOperational: false,
+        })
+      );
+    });
+
+
+
+
+
+
+
+
+
+
     
     
     })   
