@@ -115,6 +115,19 @@ describe('Error middlewares', () => {
             expect(sendSpy).toHaveBeenCalledWith(expect.objectContaining({ code: error.statusCode, message: error.message }));
             expect(res.locals.errorMessage).toBe(error.message);
           });
+          test('should put the error stack in the response if in development mode', () => {
+            config.env = 'development';
+            const error = new ApiError(httpStatus.BAD_REQUEST, 'Any error');
+            const res = httpMocks.createResponse();
+            const sendSpy = jest.spyOn(res, 'send');
+      
+            errorHandler(error, httpMocks.createRequest(), res);
+      
+            expect(sendSpy).toHaveBeenCalledWith(
+              expect.objectContaining({ code: error.statusCode, message: error.message, stack: error.stack })
+            );
+            config.env = process.env.NODE_ENV;
+          });
       
 
         
