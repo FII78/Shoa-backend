@@ -50,6 +50,23 @@ describe('Error middlewares', () => {
     });
 
 
+    test('should convert an Error without message to ApiError with default message of that http status', () => {
+        const error = new Error();
+        error.statusCode = httpStatus.BAD_REQUEST;
+        const next = jest.fn();
+  
+        errorConverter(error, httpMocks.createRequest(), httpMocks.createResponse(), next);
+  
+        expect(next).toHaveBeenCalledWith(expect.any(ApiError));
+        expect(next).toHaveBeenCalledWith(
+          expect.objectContaining({
+            statusCode: error.statusCode,
+            message: httpStatus[error.statusCode],
+            isOperational: false,
+          })
+        );
+      });
+  
 
 
 
@@ -58,7 +75,6 @@ describe('Error middlewares', () => {
 
 
 
-    
     
     })   
     });
