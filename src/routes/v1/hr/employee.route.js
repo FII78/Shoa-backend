@@ -1,38 +1,39 @@
 const express = require('express');
-const auth = require('../../middlewares/auth');
-const validate = require('../../middlewares/validate');
-const { userValidation } = require('../../validations');
-const { userController } = require('../../controllers');
+const auth = require('../../../middlewares/auth');
+const validate = require('../../../middlewares/validate');
+const { employeeValidation } = require('../../../validations');
+const { employeeController } = require('../../../controllers');
 
 const router = express.Router();
 
-router
-  .route('/')
-  .post(auth('manageUsers'), validate(userValidation.createUser), userController.createUser)
-  .get(auth('getUsers'), validate(userValidation.getUsers), userController.getUsers);
+router.route('/')
+  .post(auth('manageEmployees'), validate(employeeValidation.createEmployee), employeeController.createEmployee)
+  .get(auth('manageEmployees'), validate(employeeValidation.getEmployees), employeeController.getEmployees);
 
 router
-  .route('/:userId')
-  .get(auth('getUsers'), validate(userValidation.getUser), userController.getUser)
-  .patch(auth('manageUsers'), validate(userValidation.updateUser), userController.updateUser)
-  .delete(auth('manageUsers'), validate(userValidation.deleteUser), userController.deleteUser);
+  .route('/:employeeId')
+  .get(auth('manageEmployees'), validate(employeeValidation.getEmployee), employeeController.getEmployee)
+  .patch( auth('manageEmployees'),validate(employeeValidation.updateEmployee), employeeController.updateEmployee)
+  .delete( auth('manageEmployees'),validate(employeeValidation.deleteEmployee), employeeController.deleteEmployee);
 
+ 
 module.exports = router;
+
 
 /**
  * @swagger
  * tags:
- *   name: Users
- *   description: User management and retrieval
+ *   name: Employee
+ *   description: Employee management and retrieval
  */
 
 /**
  * @swagger
- * /users:
+ * /employee:
  *   post:
- *     summary: Create a user
- *     description: Only admins can create other users.
- *     tags: [Users]
+ *     summary: Create a Employee
+ *     description: Only admins can create other employees.
+ *     tags: [Employee]
  *     security:
  *       - bearerAuth: []
  *     requestBody:
@@ -42,32 +43,35 @@ module.exports = router;
  *           schema:
  *             type: object
  *             required:
- *               - password
- *               - role
- *               - employee
+ *               - firstName
+ *               - lastName
+ *               - email
+ *               - dob
+ *               - user
  *             properties:
- *               password:
+ *               firstName:
  *                 type: string
- *                 format: password
- *                 minLength: 8
- *                 description: At least one number and one letter
- *               role:
- *                  type: string
- *                  enum: [user, admin, superAdmin]
- *               employee:
- *                  type: string
- *                  description: employee id
+ *               lastName:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               dob:
+ *                 type: Date
+ *               user:
+ *                 type: string
  *             example:
- *               password: password1
- *               role: user
- *               employee: employee id
+ *               firstName: "first name"
+ *               lastName: "last name"
+ *               email: "email@example.com"
+ *               dob: "1995-10-09"
+ *               user: "62a6457b16b678a5341fa243"
  *     responses:
  *       "201":
  *         description: Created
  *         content:
  *           application/json:
  *             schema:
- *                $ref: '#/components/schemas/User'
+ *                $ref: '#/components/schemas/Employee'
  *       "400":
  *         $ref: '#/components/responses/DuplicateEmail'
  *       "401":
@@ -76,9 +80,9 @@ module.exports = router;
  *         $ref: '#/components/responses/Forbidden'
  *
  *   get:
- *     summary: Get all users
- *     description: Only admins can retrieve all users.
- *     tags: [Users]
+ *     summary: Get all Employees
+ *     description: Only admins can retrieve all Employee.
+ *     tags: [Employee]
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -86,12 +90,12 @@ module.exports = router;
  *         name: name
  *         schema:
  *           type: string
- *         description: User name
+ *         description: Vehicle name
  *       - in: query
  *         name: role
  *         schema:
  *           type: string
- *         description: User role
+ *         description: Vehicle role
  *       - in: query
  *         name: sortBy
  *         schema:
@@ -103,7 +107,7 @@ module.exports = router;
  *           type: integer
  *           minimum: 1
  *         default: 10
- *         description: Maximum number of users
+ *         description: Maximum number of Vehicle
  *       - in: query
  *         name: page
  *         schema:
@@ -122,7 +126,7 @@ module.exports = router;
  *                 results:
  *                   type: array
  *                   items:
- *                     $ref: '#/components/schemas/User'
+ *                     $ref: '#/components/schemas/Employee'
  *                 page:
  *                   type: integer
  *                   example: 1
@@ -143,11 +147,11 @@ module.exports = router;
 
 /**
  * @swagger
- * /users/{id}:
+ * /employee/{id}:
  *   get:
- *     summary: Get a user
- *     description: Logged in users can fetch only their own user information. Only admins can fetch other users.
- *     tags: [Users]
+ *     summary: Get a Employee
+ *     description: Logged in employee can fetch only their own information. Only admins can fetch other Employee.
+ *     tags: [Employee]
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -156,14 +160,14 @@ module.exports = router;
  *         required: true
  *         schema:
  *           type: string
- *         description: User id
+ *         description: Employee id
  *     responses:
  *       "200":
  *         description: OK
  *         content:
  *           application/json:
  *             schema:
- *                $ref: '#/components/schemas/User'
+ *                $ref: '#/components/schemas/Employee'
  *       "401":
  *         $ref: '#/components/responses/Unauthorized'
  *       "403":
@@ -172,9 +176,9 @@ module.exports = router;
  *         $ref: '#/components/responses/NotFound'
  *
  *   patch:
- *     summary: Update a user
- *     description: Logged in users can only update their own information. Only admins can update other users.
- *     tags: [Users]
+ *     summary: Update a Employee
+ *     description: Logged in Vehicle can only update their own information. Only admins can update other Vehicle.
+ *     tags: [Employee]
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -183,7 +187,7 @@ module.exports = router;
  *         required: true
  *         schema:
  *           type: string
- *         description: User id
+ *         description: Employee id
  *     requestBody:
  *       required: true
  *       content:
@@ -212,7 +216,7 @@ module.exports = router;
  *         content:
  *           application/json:
  *             schema:
- *                $ref: '#/components/schemas/User'
+ *                $ref: '#/components/schemas/Employee'
  *       "400":
  *         $ref: '#/components/responses/DuplicateEmail'
  *       "401":
@@ -223,9 +227,9 @@ module.exports = router;
  *         $ref: '#/components/responses/NotFound'
  *
  *   delete:
- *     summary: Delete a user
- *     description: Logged in users can delete only themselves. Only admins can delete other users.
- *     tags: [Users]
+ *     summary: Delete a Vehicle
+ *     description: Logged in Vehicle can delete only themselves. Only admins can delete other Vehicle.
+ *     tags: [Employee]
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -234,7 +238,7 @@ module.exports = router;
  *         required: true
  *         schema:
  *           type: string
- *         description: User id
+ *         description: Vehicle id
  *     responses:
  *       "200":
  *         description: No content
@@ -245,3 +249,4 @@ module.exports = router;
  *       "404":
  *         $ref: '#/components/responses/NotFound'
  */
+ 

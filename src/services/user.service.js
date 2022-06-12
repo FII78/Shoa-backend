@@ -1,17 +1,24 @@
 const httpStatus = require('http-status');
-const { User } = require('../models');
+const { User, Employee } = require('../models');
 const ApiError = require('../utils/ApiError');
 
 /**
  * Create a user
- * @param {Object} userBody
+ * @param {Object} userbody
  * @returns {Promise<User>}
  */
-const createUser = async (userBody) => {
-  if (await User.isEmailTaken(userBody.email)) {
-    throw new ApiError(httpStatus.BAD_REQUEST, 'Email already taken');
+const createUser = async (userbody) => {
+  const employee = await Employee.findById({_id: userbody.employee})
+
+  if (await !Employee.isEmailTaken(employee.email)) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Email does not exist');
   }
-  return User.create(userBody);
+
+  const user = await User.create(userbody);
+  employee.user = user;
+  await employee.save();
+
+  return user;
 };
 
 /**
@@ -43,7 +50,7 @@ const createUser = async (userBody) => {
  * @returns {Promise<User>}
  */
  const getUserByEmail = async (email) => {
-  return User.findOne({ email });
+  return Employee.findOne({ email });
 };
 
 /**
