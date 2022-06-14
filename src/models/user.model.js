@@ -28,6 +28,12 @@ const userSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    image: {
+      type: String
+    },
+    cloudinary_id: {
+      type: String
+    },
     employee: {
       type: Schema.Types.ObjectId,
       ref: 'Employee',

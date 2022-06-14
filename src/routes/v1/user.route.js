@@ -3,12 +3,15 @@ const auth = require('../../middlewares/auth');
 const validate = require('../../middlewares/validate');
 const { userValidation } = require('../../validations');
 const { userController } = require('../../controllers');
+const multer = require("multer");
+const imageStorage = require("../../utils/imageStorage");
+const imageUpload = multer({ storage: imageStorage });
 
 const router = express.Router();
 
 router
   .route('/')
-  .post(auth('manageUsers'), validate(userValidation.createUser), userController.createUser)
+  .post(auth('manageUsers'), imageUpload.single("image"), validate(userValidation.createUser), userController.createUser)
   .get(auth('getUsers'), validate(userValidation.getUsers), userController.getUsers);
 
 router
@@ -45,6 +48,7 @@ module.exports = router;
  *               - password
  *               - role
  *               - employee
+ *               - image
  *             properties:
  *               password:
  *                 type: string
@@ -57,6 +61,9 @@ module.exports = router;
  *               employee:
  *                  type: string
  *                  description: employee id
+ *               image:
+ *                  type: string
+ *                  description: profile image
  *             example:
  *               password: password1
  *               role: user

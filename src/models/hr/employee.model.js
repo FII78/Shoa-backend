@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { toJSON, paginate } = require('../plugins');
 const {Schema} = require('mongoose');
+const validator = require('validator');
 
 const employeeSchema = mongoose.Schema(
   {

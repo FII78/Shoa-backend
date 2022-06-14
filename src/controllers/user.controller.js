@@ -3,9 +3,29 @@ const pick = require('../utils/pick');
 const ApiError = require('../utils/ApiError');
 const catchAsync = require('../utils/catchAsync');
 const { userService } = require('../services');
+const cloudinary = require("../utils/cloudinary");
+
+/**
+ * Create a user
+ * @param {Object} userbody
+ * @returns {Promise<User>}
+ */
 
 const createUser = catchAsync(async (req, res) => {
-  const user = await userService.createUser(req.body);
+  const result = await cloudinary.uploader.upload(req.file.path);
+
+  if (!result) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Image not uploaded');
+  }
+
+  userbody = {
+    password: req.body.password,
+    role: req.body.role,
+    image: result.secure_url,
+    cloudinary_id: result.public_id,
+    employee: req.body.employee
+  }
+  const user = await userService.createUser(userbody);
   res.status(httpStatus.CREATED).send(user);
 });
 
