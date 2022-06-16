@@ -45,6 +45,16 @@ components:
           type: date
         user: 
           type: string
+    
+    Notification:
+      type: object
+      properties:
+        id:
+          type: string
+        message:
+          type: string
+        role:
+          type: string
 
     Token:
       type: object
