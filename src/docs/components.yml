@@ -46,6 +46,26 @@ components:
         user: 
           type: string
     
+    Company:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        abbreviation:
+          type: string
+        website:
+          type: string
+        telephone: 
+          type: date
+        fax: 
+          type: string
+        email:
+          type: string
+        date: 
+          type: date
+    
     Notification:
       type: object
       properties:
