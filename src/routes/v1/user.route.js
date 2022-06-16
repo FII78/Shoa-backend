@@ -11,12 +11,12 @@ const router = express.Router();
 
 router
   .route('/')
-  .post(imageUpload.single("image"), validate(userValidation.createUser), userController.createUser)
-  .get(validate(userValidation.getUsers), userController.getUsers);
+  .post(auth('manageUsers'), imageUpload.single("image"), validate(userValidation.createUser), userController.createUser)
+  .get(auth('manageUsers'), validate(userValidation.getUsers), userController.getUsers);
 
 router
   .route('/:userId')
-  .get(validate(userValidation.getUser), userController.getUser)
+  .get(auth('manageUsers'), validate(userValidation.getUser), userController.getUser)
   .patch(auth('manageUsers'), validate(userValidation.updateUser), userController.updateUser)
   .delete(auth('manageUsers'), validate(userValidation.deleteUser), userController.deleteUser);
 

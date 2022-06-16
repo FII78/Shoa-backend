@@ -7,7 +7,7 @@ const { employeeController } = require('../../../controllers');
 const router = express.Router();
 
 router.route('/')
-  .post(validate(employeeValidation.createEmployee), employeeController.createEmployee)
+  .post(auth('manageEmployees'), validate(employeeValidation.createEmployee), employeeController.createEmployee)
   .get(auth('manageEmployees'), validate(employeeValidation.getEmployees), employeeController.getEmployees);
 
 router
