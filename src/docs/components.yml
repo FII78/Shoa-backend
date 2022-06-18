@@ -12,12 +12,15 @@ components:
           type: string
         role:
           type: string
-          enum: [user, admin]
+          enum: [user, admin, superAdmin]
+        employee:
+          type: string
       example:
         id: 5ebac534954b54139806c112
         email: fake@example.com
         name: fake name
         role: user
+        employee: 5ebac534954b54139806c112
 
     Vehicle:
       type: object
@@ -26,8 +29,52 @@ components:
           type: string
         name:
           type: string
-        
-       
+
+    Employee:
+      type: object
+      properties:
+        id:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        dob: 
+          type: date
+        user: 
+          type: string
+    
+    Company:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        abbreviation:
+          type: string
+        website:
+          type: string
+        telephone: 
+          type: date
+        fax: 
+          type: string
+        email:
+          type: string
+        date: 
+          type: date
+    
+    Notification:
+      type: object
+      properties:
+        id:
+          type: string
+        message:
+          type: string
+        role:
+          type: string
 
     Token:
       type: object

@@ -4,6 +4,7 @@ const userService = require('./user.service');
 const Token = require('../models/token.model');
 const ApiError = require('../utils/ApiError');
 const { tokenTypes } = require('../config/tokens');
+const { User } = require('../models');
 
 /**
  * Login with username and password
@@ -12,10 +13,22 @@ const { tokenTypes } = require('../config/tokens');
  * @returns {Promise<User>}
  */
 const loginUserWithEmailAndPassword = async (email, password) => {
-  const user = await userService.getUserByEmail(email);
-  if (!user || !(await user.isPasswordMatch(password))) {
+  const employee = await userService.getUserByEmail(email);
+  const result = await userService.getUserById(employee.user);
+  if (!result || !(await result.isPasswordMatch(password))) {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Incorrect email or password');
   }
+
+  const user = {
+    name: employee.firstName,
+    cloudinary_id: result.cloudinary_id,
+    employee: result.employee,
+    id: result.id,
+    image: result.image,
+    isEmailVerified: result.isEmailVerified,
+    role: result.role,
+  };
+
   return user;
 };
 
@@ -37,7 +50,7 @@ const logout = async (refreshToken) => {
  * @param {string} refreshToken
  * @returns {Promise<Object>}
  */
- const refreshAuth = async (refreshToken) => {
+const refreshAuth = async (refreshToken) => {
   try {
     const refreshTokenDoc = await tokenService.verifyToken(refreshToken, tokenTypes.REFRESH);
     const user = await userService.getUserById(refreshTokenDoc.user);
@@ -57,7 +70,7 @@ const logout = async (refreshToken) => {
  * @param {string} newPassword
  * @returns {Promise}
  */
- const resetPassword = async (resetPasswordToken, newPassword) => {
+const resetPassword = async (resetPasswordToken, newPassword) => {
   try {
     const resetPasswordTokenDoc = await tokenService.verifyToken(resetPasswordToken, tokenTypes.RESET_PASSWORD);
     const user = await userService.getUserById(resetPasswordTokenDoc.user);
@@ -76,7 +89,7 @@ const logout = async (refreshToken) => {
  * @param {string} verifyEmailToken
  * @returns {Promise}
  */
- const verifyEmail = async (verifyEmailToken) => {
+const verifyEmail = async (verifyEmailToken) => {
   try {
     const verifyEmailTokenDoc = await tokenService.verifyToken(verifyEmailToken, tokenTypes.VERIFY_EMAIL);
     const user = await userService.getUserById(verifyEmailTokenDoc.user);

@@ -13,6 +13,7 @@ const { authLimiter } = require('./middlewares/rateLimiter');
 const routes = require('./routes/v1');
 const { errorConverter, errorHandler } = require('./middlewares/error');
 const ApiError = require('./utils/ApiError');
+//const { notifications } = require('./utils/cron');
 
 const app = express()
 
@@ -40,7 +41,8 @@ app.use(compression());
 app.use(cors());
 app.options('*', cors());
 
- 
+//app.bind(notifications.start);
+
 app.use(passport.initialize());
 passport.use('jwt', jwtStrategy);
 
