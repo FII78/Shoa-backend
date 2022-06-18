@@ -19,7 +19,7 @@ const queryEmployees = async (filter, options) => {
 };
 
 const getEmployeeById = async (id) => {
-  return employee.findById(id);
+  return Employee.findById(id);
 };
 
 const updateEmployeeById = async (employeeId, updateBody) => {
