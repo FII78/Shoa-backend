@@ -8,6 +8,7 @@ const config = require('../../config/config');
 //hr routes
 const employeeRoute = require('./hr/employee.route');
 const companyRoute = require('./hr/company.route');
+const branchRoute = require('./hr/branch.route');
 
 //transport routes
 const vehicleRoute = require('./vehicle.route');
@@ -40,6 +41,10 @@ const defaultRoutes = [
   {
     path: '/notification',
     route: notifRoute,
+  },
+  {
+    path: '/branch',
+    route: branchRoute,
   }
 ];
 
