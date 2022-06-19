@@ -5,6 +5,10 @@ const { companyService } = require('../../services');
 const pick = require('../../utils/pick');
 
 const createCompany= catchAsync(async (req, res) => {
+  const result = await companyService.queryCompanies();
+  if(result){
+    throw new ApiError(httpStatus.NOT_FOUND, 'Company already exists');
+  }
   const company = await companyService.createCompany(req.body);
   res.status(httpStatus.CREATED).send(company);
 });
