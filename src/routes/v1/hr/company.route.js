@@ -6,7 +6,9 @@ const { companyController } = require('../../../controllers');
 
 const router = express.Router();
 
-router.route('/').post(validate(companyValidation.createCompany), companyController.createCompany);
+router.route('/')
+  .post(validate(companyValidation.createCompany), companyController.createCompany)
+  .get(validate(companyValidation.getCompanies), companyController.getCompanies);
 
 router
   .route('/:companyId')
@@ -72,7 +74,41 @@ module.exports = router;
  *         $ref: '#/components/responses/Unauthorized'
  *       "403":
  *         $ref: '#/components/responses/Forbidden'
- *
+ * 
+ *   get:
+ *     summary: Get all companies
+ *     description: Only admins can retrieve all companies.
+ *     tags: [Company]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       "200":
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 results:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Company'
+ *                 page:
+ *                   type: integer
+ *                   example: 1
+ *                 limit:
+ *                   type: integer
+ *                   example: 10
+ *                 totalPages:
+ *                   type: integer
+ *                   example: 1
+ *                 totalResults:
+ *                   type: integer
+ *                   example: 1
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden'
  */
 
 /**

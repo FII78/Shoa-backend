@@ -12,6 +12,11 @@ const createCompany = async (companyBody) => {
   return Company.create(companyBody);
 };
 
+const queryCompanies = async () => {
+  const companies = await Company.find();
+  return companies;
+};
+
 const getCompanyById = async (id) => {
   return Company.findById(id);
 };
@@ -30,4 +35,5 @@ module.exports = {
   createCompany,
   getCompanyById,
   updateCompanyById,
+  queryCompanies
 };

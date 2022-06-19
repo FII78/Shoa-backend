@@ -3,7 +3,7 @@ const { objectId } = require('../custom.validation');
 
 const createBranch = {
   body: Joi.object().keys({
-    branchManager: Joi.string().required(),
+    branchManager: Joi.custom(objectId).required(),
     location: Joi.object().required(),
     telephone: Joi.object().required(),
     email: Joi.object().required(),
