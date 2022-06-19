@@ -2,7 +2,7 @@ const allRoles = {
   user: ['user'],
   superAdmin: ['getUsers', 'manageUsers', 'getEmployees', 'manageEmployees', 'getAdmins', 'manageAdmins'],
   admin: ['getUsers', 'manageUsers', 'getEmployees', 'manageEmployees'],
-  generalManager: ['getEmployees', 'manageEmployees'],
+  generalManager: ['getEmployees', 'manageEmployees', 'getBranch', 'manageBranch'],
   supermarketManager: [],
   logisticsManager: [],
   teamLead: [],

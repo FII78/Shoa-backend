@@ -5,6 +5,7 @@ module.exports.notifController = require('./notification.controller');
 //hr controllers
 module.exports.employeeController = require('./hr/employee.controller');
 module.exports.companyController = require('./hr/company.controller');
+module.exports.branchController = require('./hr/branch.controller');
 
 //inventory controllers
 

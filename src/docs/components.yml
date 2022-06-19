@@ -41,11 +41,11 @@ components:
           type: string
         email:
           type: string
-        dob: 
+        dob:
           type: date
-        user: 
+        user:
           type: string
-    
+
     Company:
       type: object
       properties:
@@ -57,15 +57,62 @@ components:
           type: string
         website:
           type: string
-        telephone: 
+        telephone:
           type: date
-        fax: 
+        fax:
           type: string
         email:
           type: string
-        date: 
+        date:
           type: date
-    
+
+    Location:
+      type: object
+      properties:
+        city:
+          type: string
+        subCity:
+          type: string
+        wereda:
+          type: string
+        kebele:
+          type: string
+        houseNo:
+          type: string
+
+    Telephone:
+      type: object
+      properties:
+        mobile:
+          type: string
+        office:
+          type: string
+
+    Email:
+      type: object
+      properties:
+        personal:
+          type: string
+        office:
+          type: string
+
+    Branch:
+      type: object
+      properties:
+        id:
+          type: string
+        branchManager:
+          type: string
+        location:
+          $ref: '#/components/schemas/Location'
+        telephone:
+          $ref: '#/components/schemas/Telephone'
+        email:
+          $ref: '#/components/schemas/Email'
+        type:
+          type: string
+          enum: [Supermarket, Inventory, Warehouse]
+
     Notification:
       type: object
       properties:
