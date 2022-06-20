@@ -5,6 +5,7 @@ module.exports.userValidation = require('./user.validation');
 module.exports.employeeValidation = require('./hr/employee.validation');
 module.exports.companyValidation = require('./hr/company.validation');
 module.exports.branchValidation = require('./hr/branch.validation');
+module.exports.departmentValidation = require('./hr/department.validation');
 
 //transport validations
 module.exports.vehicleValidation = require('./vehicle.validation');

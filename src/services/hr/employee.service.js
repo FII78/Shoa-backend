@@ -5,7 +5,7 @@ const ApiError = require('../../utils/ApiError');
 /**
  * Create a Employee
  * @param {Object} employeeBody
- * @returns {Promise<Vehicle>}
+ * @returns {Promise<Employee>}
  */
 const createEmployee = async (employeeBody) => {
   
@@ -23,7 +23,7 @@ const getEmployeeById = async (id) => {
 };
 
 const updateEmployeeById = async (employeeId, updateBody) => {
-  const employee = await getVehicleById(employeeId);
+  const employee = await getEmployeeById(employeeId);
   if (!employee) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Employee not found');
   }
@@ -33,7 +33,7 @@ const updateEmployeeById = async (employeeId, updateBody) => {
 };
 
 const deleteEmployeeById = async (employeeId) => {
-  const employee = await getVehicleById(employeeId);
+  const employee = await getEmployeeById(employeeId);
   if (!employee) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Employee not found');
   }

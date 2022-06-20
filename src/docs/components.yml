@@ -113,6 +113,18 @@ components:
           type: string
           enum: [Supermarket, Inventory, Warehouse]
 
+    Department:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        head:
+          type: string
+        description:
+          type: string
+
     Notification:
       type: object
       properties:

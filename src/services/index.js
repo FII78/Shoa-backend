@@ -8,6 +8,7 @@ module.exports.notifService = require('./notification.service');
 module.exports.employeeService = require('./hr/employee.service');
 module.exports.companyService = require('./hr/company.service');
 module.exports.branchService = require('./hr/branch.service');
+module.exports.departmentService = require('./hr/department.service');
 
 //inventory services
 
