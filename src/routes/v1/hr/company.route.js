@@ -7,13 +7,13 @@ const { companyController } = require('../../../controllers');
 const router = express.Router();
 
 router.route('/')
-  .post(validate(companyValidation.createCompany), companyController.createCompany)
-  .get(validate(companyValidation.getCompanies), companyController.getCompanies);
+  .post(auth('manageCompany'), validate(companyValidation.createCompany), companyController.createCompany)
+  .get(auth('manageCompany'), validate(companyValidation.getCompanies), companyController.getCompanies);
 
 router
   .route('/:companyId')
-  .get(validate(companyValidation.getCompany), companyController.getCompany)
-  .patch(validate(companyValidation.updateCompany), companyController.updateCompany);
+  .get(auth('manageCompany'), validate(companyValidation.getCompany), companyController.getCompany)
+  .patch(auth('manageCompany'), validate(companyValidation.updateCompany), companyController.updateCompany);
 
 module.exports = router;
 
@@ -29,6 +29,7 @@ module.exports = router;
  * /company:
  *   post:
  *     summary: Create a Company
+ *     description: Only super admins can create companies.
  *     tags: [Company]
  *     security:
  *       - bearerAuth: []
@@ -77,7 +78,7 @@ module.exports = router;
  * 
  *   get:
  *     summary: Get all companies
- *     description: Only admins can retrieve all companies.
+ *     description: Only super admins can retrieve all companies.
  *     tags: [Company]
  *     security:
  *       - bearerAuth: []
@@ -116,6 +117,7 @@ module.exports = router;
  * /company/{id}:
  *   get:
  *     summary: Get a Company
+ *     description: Only super admins can retrieve a company.
  *     tags: [Company]
  *     security:
  *       - bearerAuth: []
@@ -142,6 +144,7 @@ module.exports = router;
  *
  *   patch:
  *     summary: Update a Company
+ *     description: Only super admins can update a company.
  *     tags: [Company]
  *     security:
  *       - bearerAuth: []

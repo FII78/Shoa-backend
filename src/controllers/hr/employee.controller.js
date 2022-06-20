@@ -10,7 +10,7 @@ const createEmployee= catchAsync(async (req, res) => {
 });
 
 const getEmployees = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ['firstName', 'lastName','email', 'dob']);
+  const filter = pick(req.query, ['firstName', 'middleName','lastName','email', 'id']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
   const result = await employeeService.queryEmployees(filter, options);
   res.send(result);

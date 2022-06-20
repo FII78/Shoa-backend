@@ -4,18 +4,19 @@ const catchAsync = require('../../utils/catchAsync');
 const { companyService } = require('../../services');
 const pick = require('../../utils/pick');
 
-const createCompany= catchAsync(async (req, res) => {
+const createCompany = catchAsync(async (req, res) => {
   const result = await companyService.queryCompanies();
-  if(result){
-    throw new ApiError(httpStatus.NOT_FOUND, 'Company already exists');
+  if (result.length == 0) {
+    const company = await companyService.createCompany(req.body);
+    res.status(httpStatus.CREATED).send(company);
   }
-  const company = await companyService.createCompany(req.body);
-  res.status(httpStatus.CREATED).send(company);
+
+  throw new ApiError(httpStatus.NOT_FOUND, 'Company already exists');
 });
 
 const getCompany = catchAsync(async (req, res) => {
   const company = await companyService.getCompanyById(req.params.companyId);
-  
+
   if (!company) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Company not found');
   }
@@ -37,6 +38,5 @@ module.exports = {
   createCompany,
   getCompany,
   updateCompany,
-  getCompanies
+  getCompanies,
 };
-

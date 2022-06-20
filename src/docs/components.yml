@@ -37,13 +37,27 @@ components:
           type: string
         firstName:
           type: string
+        middleName:
+          type: string
         lastName:
           type: string
         email:
-          type: string
+          $ref: '#/components/schemas/Email'
         dob:
           type: date
+        doj:
+          type: data
+        location:
+          $ref: '#/components/schemas/Location'
+        telephone:
+          $ref: '#/components/schemas/Telephone'
         user:
+          type: string
+        designation:
+          type: string
+        department:
+          type: string
+        branch:
           type: string
 
     Company:

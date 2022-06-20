@@ -32,7 +32,7 @@ module.exports = router;
  * /employee:
  *   post:
  *     summary: Create a Employee
- *     description: Only admins can create other employees.
+ *     description: Only admin, super admins & general managers can create other employees.
  *     tags: [Employee]
  *     security:
  *       - bearerAuth: []
@@ -61,6 +61,7 @@ module.exports = router;
  *                 type: string
  *             example:
  *               firstName: "first name"
+ *               middleName: "last name"
  *               lastName: "last name"
  *               email: "email@example.com"
  *               dob: "1995-10-09"
@@ -81,21 +82,36 @@ module.exports = router;
  *
  *   get:
  *     summary: Get all Employees
- *     description: Only admins can retrieve all Employee.
+ *     description: Only admin, super admins & general managers can retrieve all Employee.
  *     tags: [Employee]
  *     security:
  *       - bearerAuth: []
  *     parameters:
  *       - in: query
- *         name: name
+ *         name: firstName
  *         schema:
  *           type: string
- *         description: Vehicle name
+ *         description: Employee first name
  *       - in: query
- *         name: role
+ *         name: middleName
  *         schema:
  *           type: string
- *         description: Vehicle role
+ *         description: Employee middle name
+ *       - in: query
+ *         name: lastName
+ *         schema:
+ *           type: string
+ *         description: Employee last name
+  *       - in: query
+ *         name: email
+ *         schema:
+ *           type: string
+ *         description: Employee email
+  *       - in: query
+ *         name: id
+ *         schema:
+ *           type: string
+ *         description: Employee id
  *       - in: query
  *         name: sortBy
  *         schema:
@@ -150,7 +166,7 @@ module.exports = router;
  * /employee/{id}:
  *   get:
  *     summary: Get a Employee
- *     description: Logged in employee can fetch only their own information. Only admins can fetch other Employee.
+ *     description: Logged in employee can fetch only their own information. Only admin, super admins & general managers can fetch other Employee.
  *     tags: [Employee]
  *     security:
  *       - bearerAuth: []
@@ -177,7 +193,7 @@ module.exports = router;
  *
  *   patch:
  *     summary: Update a Employee
- *     description: Logged in Vehicle can only update their own information. Only admins can update other Vehicle.
+ *     description: Logged in employee can only update their own information. Only admin, super admins & general managers can update other Vehicle.
  *     tags: [Employee]
  *     security:
  *       - bearerAuth: []
@@ -228,7 +244,7 @@ module.exports = router;
  *
  *   delete:
  *     summary: Delete a Vehicle
- *     description: Logged in Vehicle can delete only themselves. Only admins can delete other Vehicle.
+ *     description: Logged in employee can delete only themselves. Only admin, super admins & general managers can delete other Vehicle.
  *     tags: [Employee]
  *     security:
  *       - bearerAuth: []

@@ -14,13 +14,14 @@ const { User } = require('../models');
  */
 const loginUserWithEmailAndPassword = async (email, password) => {
   const employee = await userService.getUserByEmail(email);
+  console.log("employee", employee);
   const result = await userService.getUserById(employee.user);
   if (!result || !(await result.isPasswordMatch(password))) {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Incorrect email or password');
   }
 
   const user = {
-    name: employee.firstName,
+    name: `${employee.firstName} ${employee.middleName}`,
     cloudinary_id: result.cloudinary_id,
     employee: result.employee,
     id: result.id,

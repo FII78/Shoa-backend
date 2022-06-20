@@ -10,7 +10,7 @@ const ApiError = require('../utils/ApiError');
 const createUser = async (userbody) => {
   const employee = await Employee.findById({_id: userbody.employee})
 
-  if (await !Employee.isEmailTaken(employee.email)) {
+  if (await !Employee.isEmailTaken(employee.email.office)) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Email does not exist');
   }
 
@@ -50,7 +50,8 @@ const createUser = async (userbody) => {
  * @returns {Promise<User>}
  */
  const getUserByEmail = async (email) => {
-  return Employee.findOne({ email });
+  
+  return Employee.findOne({ 'email.office':email });
 };
 
 /**

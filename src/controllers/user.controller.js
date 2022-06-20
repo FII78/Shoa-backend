@@ -48,7 +48,7 @@ const getUser = catchAsync(async (req, res) => {
   }
 
   const user = {
-    name: employee.firstName,
+    name: `${employee.firstName} ${employee.middleName}`,
     cloudinary_id: result.cloudinary_id,
     employee: result.employee,
     id: result.id,
