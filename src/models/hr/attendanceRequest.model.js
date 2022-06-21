@@ -19,12 +19,6 @@ const attendanceRequestSchema = mongoose.Schema(
       required: true,
       trim: true,
     },
-    isExtendedLeave: {
-        type: String,
-        required: true,
-        enum: ['Yes', 'No'],
-        trim: true,
-      },    
   },
   {
     timestamps: true,
