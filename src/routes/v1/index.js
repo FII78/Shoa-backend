@@ -10,6 +10,13 @@ const employeeRoute = require('./hr/employee.route');
 const companyRoute = require('./hr/company.route');
 const branchRoute = require('./hr/branch.route');
 const departmentRoute = require('./hr/department.route');
+const insuranceRoute = require('./hr/insurance.route');
+const workRoute = require('./hr/work.route');
+const salaryRoute = require('./hr/salary.route');
+const educationRoute = require('./hr/education.route');
+const attendanceRequestRoute = require('./hr/attendanceRequest.route');
+const leaveRequestRoute = require('./hr/leaveRequest.route');
+const travelRequestRoute = require('./hr/travelRequest.route');
 
 //transport routes
 const vehicleRoute = require('./vehicle.route');
@@ -50,6 +57,34 @@ const defaultRoutes = [
   {
     path: '/department',
     route: departmentRoute,
+  },
+  {
+    path: '/education',
+    route: educationRoute,
+  },
+  {
+    path: '/insurance',
+    route: insuranceRoute,
+  },
+  {
+    path: '/work',
+    route: workRoute,
+  },
+  {
+    path: '/salary',
+    route: salaryRoute,
+  },
+  {
+    path: '/request/attendance',
+    route: attendanceRequestRoute,
+  },
+  {
+    path: '/request/leave',
+    route: leaveRequestRoute,
+  },
+  {
+    path: '/request/travel',
+    route: travelRequestRoute,
   }
 ];
 

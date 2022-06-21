@@ -9,7 +9,7 @@ const router = express.Router();
 router
   .route('/')
   .post(auth('myRequest'), validate(leaveRequestValidation.createLeaveRequest), leaveRequestController.createLeaveRequest)
-  .get(auth('myRequest'), validate(leaveRequestValidation.getLeaveRequests), leaveRequestController.createLeaveRequest);
+  .get(auth('myRequest'), validate(leaveRequestValidation.getLeaveRequests), leaveRequestController.getLeaveRequest);
 
 router
   .route('/:requestId')
