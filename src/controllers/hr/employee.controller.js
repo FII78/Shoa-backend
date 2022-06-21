@@ -20,11 +20,6 @@ const createEmployee = catchAsync(async (req, res) => {
   userbody.cv = result.secure_url;
   userbody.cloudinary_id = result.public_id;
 
-  // userbody.map((item, i) => {
-  //   item.cv = result.secure_url
-  //   item.cloudinary_id = result.public_id
-  // });
-
   const employee = await employeeService.createEmployee(userbody);
   res.status(httpStatus.CREATED).send(employee);
 });
