@@ -25,7 +25,6 @@ const getEmployees = {
     email: Joi.string(),
     id: Joi.custom(objectId),
     sortBy: Joi.string(),
-    limit: Joi.number().integer(),
     page: Joi.number().integer(),
   }),
 };

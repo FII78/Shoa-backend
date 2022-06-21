@@ -26,7 +26,6 @@ const getVehicles = {
     model: Joi.string(),
     yearofMan:Joi.date(),
     sortBy: Joi.string(),
-    limit: Joi.number().integer(),
     page: Joi.number().integer(),
   }),
 };

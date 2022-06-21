@@ -18,7 +18,6 @@ const getBranches = {
     email: Joi.object(),
     type: Joi.string(),
     sortBy: Joi.string(),
-    limit: Joi.number().integer(),
     page: Joi.number().integer(),
   }),
 };

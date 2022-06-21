@@ -35,7 +35,6 @@ const employeeSchema = mongoose.Schema(
     email: {
       personal: {
         type: String,
-        required: true,
         unique: true,
         trim: true,
         lowercase: true,
@@ -66,14 +65,16 @@ const employeeSchema = mongoose.Schema(
       mobile: {
         type: String,
         trim: true,
-      }
+        required: true,
+
+      },
     },
     location: {
       city: { type: String, required: true, trim: true },
       subCity: { type: String, required: true, trim: true },
       wereda: { type: String, required: true, trim: true },
       kebele: { type: String, required: true, trim: true },
-      houseNo: { type: String, required: true, trim: true },  
+      houseNo: { type: String, required: true, trim: true },
     },
     dob: {
       type: Date,
@@ -83,6 +84,10 @@ const employeeSchema = mongoose.Schema(
     doj: {
       type: Date,
       required: true,
+      trim: true,
+    },
+    mobile: {
+      type: String,
       trim: true,
     },
     user: {

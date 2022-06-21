@@ -11,7 +11,7 @@ const createDepartment= catchAsync(async (req, res) => {
 
 const getDepartments = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['name', 'head']);
-  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const options = pick(req.query, ['sortBy', 'page']);
   const result = await departmentService.queryDepartments(filter, options);
   res.send(result.results);
 });

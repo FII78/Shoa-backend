@@ -11,7 +11,7 @@ const createBranch= catchAsync(async (req, res) => {
 
 const getBranches = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['branchManager', 'location','type']);
-  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const options = pick(req.query, ['sortBy', 'page']);
   const result = await branchService.queryBranches(filter, options);
   console.log(result.results);
   res.send(result.results);

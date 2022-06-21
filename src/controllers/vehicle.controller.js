@@ -11,7 +11,7 @@ const createVehicle= catchAsync(async (req, res) => {
 
 const getVehicles = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['name', 'model','yearofMan']);
-  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const options = pick(req.query, ['sortBy', 'page']);
   const result = await vehicleService.queryVehicles(filter, options);
   res.send(result);
 });
