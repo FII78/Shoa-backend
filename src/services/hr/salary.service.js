@@ -29,7 +29,7 @@ const updateSalaryById = async (salaryId, updateBody) => {
     }
     Object.assign(salary, updateBody);
     await salary.save();
-  return result;
+  return salary;
 };
 
 const deleteSalaryById = async (workId) => {

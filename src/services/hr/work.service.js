@@ -29,7 +29,7 @@ const updateWorkById = async (workId, updateBody) => {
     }
     Object.assign(work, updateBody);
     await work.save();
-  return result;
+  return work;
 };
 
 const deleteWorkById = async (workId) => {

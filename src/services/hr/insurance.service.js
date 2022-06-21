@@ -8,7 +8,7 @@ const ApiError = require('../../utils/ApiError');
  * @returns {Promise<Insurance>}
  */
 const createInsurance = async (insuranceBody) => {
-  console.log("service", insuranceBody);
+  console.log('service', insuranceBody);
   return Insurance.insertMany(insuranceBody);
 };
 
@@ -23,13 +23,13 @@ const getInsuranceById = async (id) => {
 };
 
 const updateInsuranceById = async (insuranceId, updateBody) => {
-    const insurance = await getInsuranceById(insuranceId);
-    if (!insurance) {
-      throw new ApiError(httpStatus.NOT_FOUND, 'insurance not found');
-    }
-    Object.assign(insurance, updateBody);
-    await insurance.save();
-  return result;
+  const insurance = await getInsuranceById(insuranceId);
+  if (!insurance) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'insurance not found');
+  }
+  Object.assign(insurance, updateBody);
+  await insurance.save();
+  return insurance;
 };
 
 const deleteInsuranceById = async (insuranceId) => {

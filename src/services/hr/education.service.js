@@ -8,7 +8,7 @@ const ApiError = require('../../utils/ApiError');
  * @returns {Promise<Education>}
  */
 const createEducation = async (educationBody) => {
-  console.log("service", educationBody);
+  console.log('service', educationBody);
   return Education.insertMany(educationBody);
 };
 
@@ -23,13 +23,13 @@ const getEducationById = async (id) => {
 };
 
 const updateEducationById = async (educationId, updateBody) => {
-    const education = await getEducationById(educationId);
-    if (!education) {
-      throw new ApiError(httpStatus.NOT_FOUND, 'education not found');
-    }
-    Object.assign(education, updateBody);
-    await education.save();
-  return result;
+  const education = await getEducationById(educationId);
+  if (!education) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'education not found');
+  }
+  Object.assign(education, updateBody);
+  await education.save();
+  return education;
 };
 
 const deleteEducationById = async (educationId) => {
