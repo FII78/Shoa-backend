@@ -8,13 +8,13 @@ const router = express.Router();
 
 router
   .route('/')
-  .post(auth('manageEmployees'), validate(attendanceRequestValidation.createAttendanceRequest), attendanceRequestController.createAttendanceRequest)
-  .get(auth('manageEmployees'), validate(attendanceRequestValidation.getAttendanceRequests), attendanceRequestController.getAttendanceRequests);
+  .post(auth('myRequest'), validate(attendanceRequestValidation.createAttendanceRequest), attendanceRequestController.createAttendanceRequest)
+  .get(auth('myRequest'), validate(attendanceRequestValidation.getAttendanceRequests), attendanceRequestController.getAttendanceRequests);
 
 router
   .route('/:requestId')
-  .get(auth('manageEmployees'), validate(attendanceRequestValidation.getAttendanceRequest), attendanceRequestController.getAttendanceRequest)
-  .patch(auth('manageEmployees'), validate(attendanceRequestValidation.updateAttendanceRequest), attendanceRequestController.updateAttendanceRequest)
-  .delete(auth('manageEmployees'), validate(attendanceRequestValidation.deleteAttendanceRequest), attendanceRequestController.deleteAttendanceRequest);
+  .get(auth('myRequest'), validate(attendanceRequestValidation.getAttendanceRequest), attendanceRequestController.getAttendanceRequest)
+  .patch(auth('myRequest'), validate(attendanceRequestValidation.updateAttendanceRequest), attendanceRequestController.updateAttendanceRequest)
+  .delete(auth('myRequest'), validate(attendanceRequestValidation.deleteAttendanceRequest), attendanceRequestController.deleteAttendanceRequest);
 
 module.exports = router;

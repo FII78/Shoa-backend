@@ -19,6 +19,11 @@ const attendanceRequestSchema = mongoose.Schema(
       required: true,
       trim: true,
     },
+    status: {
+      type: String,
+      enum: ['Pending', 'Approved', 'Rejected'],
+      default: 'Pending'
+    }
   },
   {
     timestamps: true,
@@ -30,8 +35,8 @@ attendanceRequestSchema.plugin(toJSON);
 attendanceRequestSchema.plugin(paginate);
 
 /**
- * @typedef attendanceRequest
+ * @typedef AttendanceRequest
  */
-const attendanceRequest = mongoose.model('AttendanceRequest', attendanceRequestSchema);
+const AttendanceRequest = mongoose.model('AttendanceRequest', attendanceRequestSchema);
 
-module.exports = attendanceRequest;
+module.exports = AttendanceRequest;

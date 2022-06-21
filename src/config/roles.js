@@ -1,13 +1,13 @@
 const allRoles = {
-  user: ['user'],
-  superAdmin: ['getUsers', 'manageUsers', 'manageEmployees', 'manageAdmins', 'manageBranch', 'manageDepartment', 'manageCompany'],
+  user: ['user', 'myRequest'],
+  superAdmin: ['getUsers', 'manageUsers', 'manageEmployees', 'manageAdmins', 'manageBranch', 'manageDepartment', 'manageCompany', 'myRequest'],
   admin: ['getUsers', 'manageUsers', 'manageEmployees'],
-  generalManager: ['manageEmployees', 'manageBranch', 'manageDepartment'],
-  supermarketManager: [],
-  logisticsManager: [],
-  teamLead: [],
-  clerk: [],
-  cashier: [],
+  generalManager: ['manageEmployees', 'manageBranch', 'manageDepartment', 'myRequest'],
+  supermarketManager: ['myRequest'],
+  logisticsManager: ['myRequest'],
+  teamLead: ['myRequest'],
+  clerk: ['myRequest'],
+  cashier: ['myRequest'],
 };
 
 const roles = Object.keys(allRoles);
