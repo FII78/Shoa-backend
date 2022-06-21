@@ -13,6 +13,7 @@ module.exports.salaryValidation = require('./hr/salary.validation');
 module.exports.attendanceRequestValidation = require('./hr/attendanceRequest.validation');
 module.exports.leaveRequestValidation = require('./hr/leaveRequest.validation');
 module.exports.travelRequestValidation = require('./hr/travelRequest.validation');
+module.exports.attendanceValidation = require('./hr/attendance.validation');
 
 //transport validations
 module.exports.vehicleValidation = require('./transport/vehicle.validation');

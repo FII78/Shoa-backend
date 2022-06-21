@@ -17,6 +17,7 @@ const educationRoute = require('./hr/education.route');
 const attendanceRequestRoute = require('./hr/attendanceRequest.route');
 const leaveRequestRoute = require('./hr/leaveRequest.route');
 const travelRequestRoute = require('./hr/travelRequest.route');
+const attendanceRoute = require('./hr/attendance.route');
 
 //transport routes
 const vehicleRoute = require('./transport/vehicle.route');
@@ -90,6 +91,10 @@ const defaultRoutes = [
   {
     path: '/request/travel',
     route: travelRequestRoute,
+  },
+  {
+    path: '/attendance',
+    route: attendanceRoute,
   }
 ];
 

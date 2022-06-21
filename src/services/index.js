@@ -16,6 +16,7 @@ module.exports.salaryService = require('./hr/salary.service');
 module.exports.attendanceRequestService = require('./hr/attendanceRequest.service');
 module.exports.leaveRequestService = require('./hr/leaveRequest.service');
 module.exports.travelRequestService = require('./hr/travelRequest.service');
+module.exports.attendanceService = require('./hr/attendace.service');
 
 //inventory services
 
