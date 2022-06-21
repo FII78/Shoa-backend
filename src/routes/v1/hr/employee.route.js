@@ -3,11 +3,14 @@ const auth = require('../../../middlewares/auth');
 const validate = require('../../../middlewares/validate');
 const { employeeValidation } = require('../../../validations');
 const { employeeController } = require('../../../controllers');
+const multer = require("multer");
+const imageStorage = require("../../../utils/imageStorage");
+const imageUpload = multer({ storage: imageStorage });
 
 const router = express.Router();
 
 router.route('/')
-  .post(auth('manageEmployees'), validate(employeeValidation.createEmployee), employeeController.createEmployee)
+  .post(auth('manageEmployees'), imageUpload.single("file"), validate(employeeValidation.createEmployee), employeeController.createEmployee)
   .get(auth('manageEmployees'), validate(employeeValidation.getEmployees), employeeController.getEmployees);
 
 router

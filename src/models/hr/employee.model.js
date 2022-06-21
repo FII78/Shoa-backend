@@ -90,6 +90,13 @@ const employeeSchema = mongoose.Schema(
       type: String,
       trim: true,
     },
+    cv: {
+      type: String,
+      trim: true,
+    },
+    cloudinary_id: {
+      type: String
+    },
     user: {
       type: Schema.Types.ObjectId,
       ref: 'User',

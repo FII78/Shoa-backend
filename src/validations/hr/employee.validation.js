@@ -2,20 +2,7 @@ const Joi = require('joi');
 const { objectId } = require('../custom.validation');
 
 const createEmployee = {
-  body: Joi.object().keys({
-    firstName: Joi.string().required(),
-    middleName: Joi.string().required(),
-    lastName: Joi.string().required(),
-    email: Joi.object().required(),
-    telephone: Joi.object().required(),
-    location: Joi.object().required(),
-    dob: Joi.date().required(),
-    doj: Joi.date().required(),
-    user: Joi.custom(objectId),
-    designation: Joi.custom(objectId),
-    department: Joi.custom(objectId),
-    branch: Joi.custom(objectId),
-  }),
+  body: Joi.object()
 };
 const getEmployees = {
   query: Joi.object().keys({
