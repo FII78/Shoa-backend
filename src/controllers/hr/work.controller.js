@@ -37,7 +37,7 @@ const updateWork = catchAsync(async (req, res) => {
 });
 
 const deleteWork = catchAsync(async (req, res) => {
-  await workService.deleteWorkById(req.params.WorkId);
+  await workService.deleteWorkById(req.params.workId);
   res.status(httpStatus.NO_CONTENT).send();
 });
 
