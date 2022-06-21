@@ -20,6 +20,7 @@ const travelRequestRoute = require('./hr/travelRequest.route');
 
 //transport routes
 const vehicleRoute = require('./transport/vehicle.route');
+const assignmentRoute = require('./transport/assignment.route');
 
 //inventory routes
 
@@ -37,6 +38,10 @@ const defaultRoutes = [
   {
     path: '/vehicle',
     route: vehicleRoute,
+  },
+  {
+    path: '/assignment',
+    route: assignmentRoute,
   },
   {
     path: '/employee',

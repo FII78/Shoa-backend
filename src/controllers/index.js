@@ -19,5 +19,6 @@ module.exports.travelRequestController = require('./hr/travelRequest.controller'
 
 //transport controllers
 module.exports.vehicleController = require('./transport/vehicle.controller');
+module.exports.assignmentController = require('./transport/assignment.controller');
 
 

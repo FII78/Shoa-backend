@@ -21,3 +21,4 @@ module.exports.travelRequestService = require('./hr/travelRequest.service');
 
 //transport services
 module.exports.vehicleService = require('./transport/vehicle.service');
+module.exports.assignmentService = require('./transport/assignment.service');

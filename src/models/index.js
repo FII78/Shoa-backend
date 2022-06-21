@@ -6,6 +6,7 @@ module.exports.Notification = require('./other/notification.model');
 module.exports.Employee = require('./hr/employee.model');
 module.exports.Company = require('./hr/company.model');
 module.exports.Branch = require('./hr/branch.model');
+module.exports.Department = require('./hr/department.model');
 module.exports.Education = require('./hr/education.model');
 module.exports.Insurance = require('./hr/insurance.model');
 module.exports.Salary = require('./hr/salary.model');
@@ -18,5 +19,6 @@ module.exports.TravelRequest = require('./hr/travelRequest.model');
 
 //transport models
 module.exports.Vehicle = require('./transport/vehicle.model');
+module.exports.Assignment = require('./transport/assignment.model');
 
 

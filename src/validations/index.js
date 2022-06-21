@@ -16,3 +16,4 @@ module.exports.travelRequestValidation = require('./hr/travelRequest.validation'
 
 //transport validations
 module.exports.vehicleValidation = require('./transport/vehicle.validation');
+module.exports.assignmentValidation = require('./transport/assignment.validation');
