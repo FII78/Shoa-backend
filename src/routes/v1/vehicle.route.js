@@ -6,18 +6,16 @@ const vehicleController = require('../../controllers/vehicle.controller');
 
 const router = express.Router();
 
-router.route('/')
-  .post(auth('manageUsers'), validate(vehicleValidation.createVehicle), vehicleController.createVehicle)
-  .get(auth('manageUsers'), validate(vehicleValidation.getVehicles), vehicleController.getVehicles);
+router
+  .route('/')
+  .post(auth('manageLogistics'), validate(vehicleValidation.createVehicle), vehicleController.createVehicle)
+  .get(auth('manageLogistics'), validate(vehicleValidation.getVehicles), vehicleController.getVehicles);
 
 router
   .route('/:vehicleId')
-  .get(auth('manageUsers'), validate(vehicleValidation.getVehicle), vehicleController.getVehicle)
-  .patch( auth('manageUsers'),validate(vehicleValidation.updateVehicle), vehicleController.updateVehicle)
-  .delete( auth('manageUsers'),validate(vehicleValidation.deleteVehicle), vehicleController.deleteVehicle);
-
-
-
+  .get(auth('manageLogistics'), validate(vehicleValidation.getVehicle), vehicleController.getVehicle)
+  .patch(auth('manageLogistics'), validate(vehicleValidation.updateVehicle), vehicleController.updateVehicle)
+  .delete(auth('manageLogistics'), validate(vehicleValidation.deleteVehicle), vehicleController.deleteVehicle);
 
 // router.post('/', validate(vehicleValidation.createVehicle), vehicleController.createVehicle);
 // router.get('/', validate(vehicleValidation.getVehicles), vehicleController.getVehicles);
@@ -31,9 +29,8 @@ router
 //   .get('getVehicle', validate(vehicleValidation.getVehicle), vehicleController.getVehicle)
 //   .patch('manageVehicles', validate(vehicleValidation.updateVehicle), vehicleController.updateVehicle)
 //   .delete('manageVehicles', validate(vehicleValidation.deleteVehicle), vehicleController.deleteVehicle);
- 
-module.exports = router;
 
+module.exports = router;
 
 /**
  * @swagger
@@ -101,21 +98,6 @@ module.exports = router;
  *                 type: number
  *               PlateNum:
  *                 type: number
- *             example:
- *               name: "vehicle name"
- *               type: "vehicle type"
- *               model: "vehicle model"
- *               yearofMan: "2000-10-09"
- *               noofcylinders: 12
- *               horsepower: 12
- *               cubicCapacity: 12 
- *               color: "red"
- *               carryingCapacity: 12 
- *               status: Active
- *               regNum: 100
- *               engineNum: 11
- *               ChassisNum: 11
- *               PlateNum: 111
  *     responses:
  *       "201":
  *         description: Created
@@ -300,4 +282,3 @@ module.exports = router;
  *       "404":
  *         $ref: '#/components/responses/NotFound'
  */
- 
