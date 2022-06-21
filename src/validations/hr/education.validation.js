@@ -1,10 +1,10 @@
 const Joi = require('joi');
 const { objectId } = require('../custom.validation');
 
-const createInsurance = {
+const createEducation = {
   body: Joi.object()
 };
-const getInsurances = {
+const getEducations = {
   query: Joi.object().keys({
     employee: Joi.custom(objectId),
     sortBy: Joi.string(),
@@ -12,29 +12,29 @@ const getInsurances = {
   }),
 };
 
-const getInsurance = {
+const getEducation = {
   params: Joi.object().keys({
-    insuranceId: Joi.custom(objectId),
+    educationId: Joi.custom(objectId),
   }),
 };
 
-const updateInsurance = {
+const updateEducation = {
   params: Joi.object().keys({
-    insuranceId: Joi.custom(objectId),
+    educationId: Joi.custom(objectId),
   }),
   body: Joi.object().min(1),
 };
 
-const deleteInsurance = {
+const deleteEducation = {
   params: Joi.object().keys({
-    insuranceId: Joi.custom(objectId),
+    educationId: Joi.custom(objectId),
   }),
 };
 
 module.exports = {
-  createInsurance,
-  getInsurances,
-  getInsurance,
-  updateInsurance,
-  deleteInsurance,
+  createEducation,
+  getEducations,
+  getEducation,
+  updateEducation,
+  deleteEducation,
 };
