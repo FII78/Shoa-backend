@@ -94,6 +94,20 @@ components:
         houseNo:
           type: string
 
+    Insurance:
+      type: object
+      properties:
+        insuranceType:
+          type: string
+        insuranceProvider:
+          type: string
+        agentName:
+          type: string
+        agentPhonenumber:
+          type: string
+        insuranceDocument:
+          type: string
+
     Telephone:
       type: object
       properties:
