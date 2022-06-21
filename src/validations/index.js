@@ -1,5 +1,5 @@
-module.exports.authValidation = require('./auth.validation');
-module.exports.userValidation = require('./user.validation');
+module.exports.authValidation = require('./auth/auth.validation');
+module.exports.userValidation = require('./auth/user.validation');
 
 //hr validation
 module.exports.employeeValidation = require('./hr/employee.validation');
@@ -15,4 +15,4 @@ module.exports.leaveRequestValidation = require('./hr/leaveRequest.validation');
 module.exports.travelRequestValidation = require('./hr/travelRequest.validation');
 
 //transport validations
-module.exports.vehicleValidation = require('./vehicle.validation');
+module.exports.vehicleValidation = require('./transport/vehicle.validation');

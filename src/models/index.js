@@ -1,6 +1,6 @@
-module.exports.Token = require('./token.model');
-module.exports.User = require('./user.model');
-module.exports.Notification = require('./notification.model');
+module.exports.Token = require('./other/token.model');
+module.exports.User = require('./auth/user.model');
+module.exports.Notification = require('./other/notification.model');
 
 //hr models
 module.exports.Employee = require('./hr/employee.model');
@@ -17,6 +17,6 @@ module.exports.TravelRequest = require('./hr/travelRequest.model');
 //inventory models
 
 //transport models
-module.exports.Vehicle = require('./vehicle.model');
+module.exports.Vehicle = require('./transport/vehicle.model');
 
 

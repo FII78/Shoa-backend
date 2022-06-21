@@ -1,8 +1,8 @@
-module.exports.authService = require('./auth.service');
-module.exports.emailService = require('./email.service');
-module.exports.tokenService = require('./token.service');
-module.exports.userService = require('./user.service');
-module.exports.notifService = require('./notification.service');
+module.exports.authService = require('./auth/auth.service');
+module.exports.emailService = require('./other/email.service');
+module.exports.tokenService = require('./other/token.service');
+module.exports.userService = require('./auth/user.service');
+module.exports.notifService = require('./other/notification.service');
 
 //hr services
 module.exports.employeeService = require('./hr/employee.service');
@@ -20,4 +20,4 @@ module.exports.travelRequestService = require('./hr/travelRequest.service');
 //inventory services
 
 //transport services
-module.exports.vehicleService = require('./vehicle.service');
+module.exports.vehicleService = require('./transport/vehicle.service');

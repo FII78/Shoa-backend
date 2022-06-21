@@ -1,6 +1,6 @@
-module.exports.authController = require('./auth.controller');
-module.exports.userController = require('./user.controller');
-module.exports.notifController = require('./notification.controller');
+module.exports.authController = require('./auth/auth.controller');
+module.exports.userController = require('./auth/user.controller');
+module.exports.notifController = require('./other/notification.controller');
 
 //hr controllers
 module.exports.employeeController = require('./hr/employee.controller');
@@ -18,6 +18,6 @@ module.exports.travelRequestController = require('./hr/travelRequest.controller'
 //inventory controllers
 
 //transport controllers
-module.exports.vehicleController = require('./vehicle.controller');
+module.exports.vehicleController = require('./transport/vehicle.controller');
 
 

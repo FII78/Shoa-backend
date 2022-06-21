@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const { objectId } = require('../custom.validation');
+const { objectId } = require('../other/custom.validation');
 
 const createBranch = {
   body: Joi.object().keys({
