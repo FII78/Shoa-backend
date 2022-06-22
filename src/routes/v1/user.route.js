@@ -11,7 +11,7 @@ const router = express.Router();
 
 router
   .route('/')
-  .post(auth('manageUsers'), imageUpload.single("image"), validate(userValidation.createUser), userController.createUser)
+  .post(imageUpload.single("image"), validate(userValidation.createUser), userController.createUser)
   .get(auth('manageUsers'), validate(userValidation.getUsers), userController.getUsers);
 
 router
