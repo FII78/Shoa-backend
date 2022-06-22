@@ -1,18 +1,20 @@
 const httpStatus = require('http-status');
-const { Grv ,Employee} = require('../../models');
+const { Grv ,Supplier} = require('../../models');
 const ApiError = require('../../utils/ApiError');
-
+const logger = require('../../config/logger');
 /**
  * Create a Grv
  * @param {Object} grvBody
  * @returns {Promise<Grv>}
  */
 const createGrv = async (grvBody) => {
-  // const employee = await Employee.findById({_id: grvBody.employee})
-  // return Grv.create(grvBody);
+
+  const supplier = await Supplier.findById({_id: grvBody.supplier})
+  logger.info(supplier,'supplier')
   const grv = await Grv.create(grvBody);
-  // employee.grv = grv;
-  // await employee.save();
+  supplier.grvId = grv._id;
+  logger.info(grv._id,"grv Id");
+  await supplier.save();
   return grv
 };
 
