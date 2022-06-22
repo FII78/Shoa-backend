@@ -4,6 +4,7 @@ const { objectId } = require('../other/custom.validation');
 const createAssignment = {
   body: Joi.object(),
 };
+
 const getAssignments = {
   query: Joi.object().keys({
     name: Joi.string(),
@@ -22,14 +23,14 @@ const getAssignment = {
 
 const updateAssignment = {
   params: Joi.object().keys({
-    vehicleId: Joi.required().custom(objectId),
+    assignmentId: Joi.required().custom(objectId),
   }),
   body: Joi.object().min(1),
 };
 
 const deleteAssignment = {
   params: Joi.object().keys({
-    vehicleId: Joi.string().custom(objectId),
+    assignmentId: Joi.string().custom(objectId),
   }),
 };
 module.exports = {
