@@ -9,7 +9,6 @@ const httpStatus = require('http-status');
  * @param {string} [options.sortBy] - Sort option in the format: sortField:(desc|asc)
  * @param {number} [options.limit] - Maximum number of results per page (default = 10)
  * @param {number} [options.page] - Current page (default = 1)
- * @returns {Promise<QueryResult>}
  */
 const queryNotifications = async (filter) => {
   const notifications = await Notification.find(filter);
@@ -24,7 +23,7 @@ const queryNotifications = async (filter) => {
  * @param {Object} notifBody
  * @returns {Promise<Notification>}
  */
-const createNotification = async (notifBody) => {
+const addNotification = async (notifBody) => {
   if (!notifBody) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Send correct notification');
   }
@@ -33,7 +32,25 @@ const createNotification = async (notifBody) => {
   return notification;
 };
 
+/**
+ * Delete user by role
+ * @returns {Promise<Notification>}
+ */
+ const deleteNotifications = async (role) => {
+  const notifications = await Notification.find(role);
+  if (!notifications) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'notifications not found');
+  }
+
+  notifications.forEach(async (element) => {
+    await element.remove();
+  });
+  
+  return notifications;
+};
+
 module.exports = {
   queryNotifications,
-  createNotification
+  addNotification,
+  deleteNotifications
 };

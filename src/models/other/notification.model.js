@@ -15,11 +15,11 @@ const notificationSchema = mongoose.Schema(
       required: true,
       trim: true,
     }],
+    createdAt: {
+      type: Date,
+      default: Date.now
+    }
   },
-
-  {
-    timestamps: true,
-  }
 );
 
 // add plugin that converts mongoose to json

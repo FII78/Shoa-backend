@@ -6,7 +6,9 @@ const router = express.Router();
 
 router
   .route('/')
-  .get(notifController.getNotifications);
+  .get(notifController.getNotifications)
+  .post(notifController.addNotifications)
+  .delete(notifController.deleteNotifications);
 
 
 module.exports = router;

@@ -8,7 +8,8 @@ const ApiError = require('../../utils/ApiError');
  * @returns {Promise<Department>}
  */
 const createDepartment = async (departmentBody) => {
-  return Department.create(departmentBody);
+  console.log("s dep", departmentBody[0]);
+  return Department.insertMany(departmentBody[0]);
 };
 
 /**
@@ -20,7 +21,6 @@ const createDepartment = async (departmentBody) => {
  * @returns {Promise<QueryResult>}
  */
  const queryDepartments = async (filter, options) => {
-  console.log("stuff", filter);
   const department = await Department.paginate(filter, options);
   return department;
 };
