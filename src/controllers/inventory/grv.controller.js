@@ -5,8 +5,11 @@ const { grvService } = require('../../services');
 const pick = require('../../utils/pick');
 
 const createGrv = catchAsync(async (req, res) => {
-
-  const grv = await grvService.createGrv(req.body);
+  userbody = {
+   
+    supplier: req.body.supplierId
+  }
+  const grv = await grvService.createGrv(userbody);
   res.status(httpStatus.CREATED).send(grv);
 });
 
