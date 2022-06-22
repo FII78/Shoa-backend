@@ -20,6 +20,12 @@ const employeeSchema = mongoose.Schema(
       required: true,
       trim: true,
     },
+    gender: {
+      type: String,
+      required: true,
+      enum: ['Male', 'Female'],
+      trim: true,
+    },
     designation: {
       type: Schema.Types.ObjectId,
       ref: 'Designation',
