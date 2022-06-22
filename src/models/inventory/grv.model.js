@@ -9,7 +9,7 @@ const grvSchema = mongoose.Schema(
     branchId: {
       type: Schema.Types.ObjectId,
       ref: 'Branch',
-      required: true
+      required: false
     },
     supplierId: {
       type: Schema.Types.ObjectId,
@@ -18,56 +18,56 @@ const grvSchema = mongoose.Schema(
     },
     contactNo: {
       type: String,
-      required: true,
-      trim: true,
+      required: false,
+      trim: false,
     },
     itemCode: {
       type: Schema.Types.ObjectId,
       ref: 'Item',
-      required: true
+      required: false
     },
     date: {
       type: Date,
-      required: true,
+      required: false,
       trim: true,
     },
     invoiceNo: {
       type: Number,
-      required: true,
+      required: false,
       trim: true,
     },
     itemDetails: {
       name: {
         type: String,
-        required: true,
+        required: false,
         trim: true,
       },
       desc: {
         type: String,
-        required: true,
+        required: false,
         trim: true,
       }
     },
     variant: {
       itemAttribute: {
         type: String,
-        required: true,
+        required: false,
         trim: true,
       },
       options: {
         type: String,
-        required: true,
+        required: false,
         trim: true,
       },
       category: {
         type: Schema.Types.ObjectId,
         ref: 'Category',
-        required: true
+        required: false
       },
       subcategory: {
         type: Schema.Types.ObjectId,
         ref: 'subCategory',
-        required: true
+        required: false
       },
     }
      },
