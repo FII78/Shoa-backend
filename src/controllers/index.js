@@ -15,6 +15,7 @@ module.exports.attendanceRequestController = require('./hr/attendanceRequest.con
 module.exports.leaveRequestController = require('./hr/leaveRequest.controller')
 module.exports.travelRequestController = require('./hr/travelRequest.controller')
 module.exports.attendanceController = require('./hr/attendance.controller')
+module.exports.designationController = require('./hr/designation.controller')
 
 //inventory controllers
 

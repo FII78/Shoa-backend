@@ -86,10 +86,6 @@ const employeeSchema = mongoose.Schema(
       required: true,
       trim: true,
     },
-    mobile: {
-      type: String,
-      trim: true,
-    },
     cv: {
       type: String,
       trim: true,

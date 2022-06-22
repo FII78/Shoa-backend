@@ -16,7 +16,7 @@ const designationSchema = mongoose.Schema(
       trim: true,
     },
     requiredSkills: {
-        type: Array,
+        type: String,
         required: true,
     }
   },

@@ -15,6 +15,7 @@ module.exports.AttendanceRequest = require('./hr/attendanceRequest.model');
 module.exports.LeaveRequest = require('./hr/leaveRequest.model');
 module.exports.TravelRequest = require('./hr/travelRequest.model');
 module.exports.Attendance = require('./hr/attendance.model');
+module.exports.Designation = require('./hr/designation.model');
 
 //inventory models
 
