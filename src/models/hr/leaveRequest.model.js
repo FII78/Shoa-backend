@@ -15,12 +15,12 @@ const leaveRequestSchema = mongoose.Schema(
       trim: true,
     },
     fromDate: {
-      type: Date,
+      type: String,
       required: true,
       trim: true,
     },
     toDate: {
-      type: Date,
+      type: String,
       required: true,
       trim: true,
     },

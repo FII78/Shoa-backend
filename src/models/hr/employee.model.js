@@ -83,12 +83,12 @@ const employeeSchema = mongoose.Schema(
       houseNo: { type: String, required: true, trim: true },
     },
     dob: {
-      type: Date,
+      type: String,
       required: true,
       trim: true,
     },
     doj: {
-      type: Date,
+      type: String,
       required: true,
       trim: true,
     },

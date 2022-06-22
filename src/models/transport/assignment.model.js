@@ -15,11 +15,11 @@ const assignmentSchema = mongoose.Schema(
       required: true,
     },
     startDate: {
-      type: Date,
+      type: String,
       trim: true,
     },
     endDate: {
-      type: Date,
+      type: String,
       trim: true,
     },
     startingKilometer: {

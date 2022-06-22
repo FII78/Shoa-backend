@@ -23,7 +23,7 @@ const vehicleSchema = mongoose.Schema(
         trim: true,
       },
       yearofMan: {
-        type: Date,
+        type: String,
         trim: true,
       },
       engineNo: {
@@ -111,12 +111,12 @@ const vehicleSchema = mongoose.Schema(
         trim: true,
       },
       doi: {
-        type: Date,
+        type: String,
         required: true,
         trim: true,
       },
       expiryDate: {
-        type: Date,
+        type: String,
         required: true,
         trim: true,
       },
@@ -153,12 +153,12 @@ const vehicleSchema = mongoose.Schema(
         trim: true,
       },
       inspectionDate: {
-        type: Date,
+        type: String,
         required: true,
         trim: true,
       },
       expiryDate: {
-        type: Date,
+        type: String,
         required: true,
         trim: true,
       },

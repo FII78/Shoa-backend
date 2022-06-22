@@ -20,12 +20,12 @@ const educationSchema = mongoose.Schema(
       trim: true,
     },
     yearStarted: {
-      type: Date,
+      type: String,
       required: true,
       trim: true,
     },
     yearCompleted: {
-      type: Date,
+      type: String,
       required: true,
       trim: true,
     },
