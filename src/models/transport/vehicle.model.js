@@ -66,10 +66,6 @@ const vehicleSchema = mongoose.Schema(
         type: String,
         trim: true,
       },
-      status: {
-        type: String,
-        trim: true,
-      },
     },
     insurance: {
       certificationNo: {
