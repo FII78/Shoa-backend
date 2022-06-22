@@ -16,22 +16,18 @@ const assignmentSchema = mongoose.Schema(
     },
     startDate: {
       type: Date,
-      required: true,
       trim: true,
     },
     endDate: {
       type: Date,
-      required: true,
       trim: true,
     },
     startingKilometer: {
       type: String,
-      required: true,
       trim: true,
     },
     status: {
       type: String,
-      required: true,
       enum: ['active', 'inactive']
     }
   },

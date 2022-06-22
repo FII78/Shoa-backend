@@ -13,7 +13,7 @@ const getAssignments = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['name', 'model','yearofMan']);
   const options = pick(req.query, ['sortBy', 'page']);
   const result = await assignmentService.queryAssignments(filter, options);
-  res.send(result);
+  res.send(result.results);
 });
 
 const getAssignment = catchAsync(async (req, res) => {
