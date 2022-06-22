@@ -18,6 +18,12 @@ module.exports.leaveRequestService = require('./hr/leaveRequest.service');
 module.exports.travelRequestService = require('./hr/travelRequest.service');
 
 //inventory services
+module.exports.itemService = require('./inventory/item.service');
+module.exports.productService = require('./inventory/product.service');
+module.exports.grvService = require('./inventory/grv.service');
+module.exports.variantService = require('./inventory/variant.service');
+module.exports.uomService = require('./inventory/uom.service');
+module.exports.supplierService = require('./inventory/supplier.service');
 
 //transport services
 module.exports.vehicleService = require('./vehicle.service');
