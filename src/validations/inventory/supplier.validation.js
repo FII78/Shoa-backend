@@ -2,11 +2,7 @@ const Joi = require('joi');
 const { objectId } = require('../custom.validation');
 
 const createSupplier = {
-  body: Joi.object().keys({
-    name: Joi.string().required(),
-    type: Joi.string().required(),
-    desc: Joi.string().required(),
-  }),
+  body: Joi.object()
 };
 
 const getSupplier = {
@@ -26,11 +22,6 @@ const updateSupplier = {
     supplierId: Joi.required().custom(objectId),
   }),
   body: Joi.object()
-    .keys({
-      name: Joi.string().required(),
-      type: Joi.string().required(),
-      desc: Joi.string().required(),
-    })
     .min(1),
 };
 
