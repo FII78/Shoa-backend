@@ -2,11 +2,7 @@ const Joi = require('joi');
 const { objectId } = require('../other/custom.validation');
 
 const createDepartment = {
-  body: Joi.array().items({
-    name: Joi.string().required(),
-    head: Joi.custom(objectId).required(),
-    description: Joi.string().required(),
-  }),
+  body: Joi.object()
 };
 const getDepartments = {
   query: Joi.object().keys({

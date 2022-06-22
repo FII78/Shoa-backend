@@ -8,7 +8,7 @@ const ApiError = require('../../utils/ApiError');
  * @returns {Promise<Department>}
  */
 const createDepartment = async (departmentBody) => {
-  return Department.insertMany(departmentBody);
+  return Department.create(departmentBody);
 };
 
 /**
