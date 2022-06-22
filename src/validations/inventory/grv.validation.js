@@ -2,12 +2,17 @@ const Joi = require('joi');
 const { objectId } = require('../custom.validation');
 
 const createGrv = {
-  body: Joi.object().keys({
-    name: Joi.string().required(),
-    type: Joi.string().required(),
-    desc: Joi.string().required(),
+  body: Joi.object()
+  // body: Joi.object().keys({
+  //   branchId: Joi.custom().required(),
+  //   supplierId: Joi.custom().required(),
+  //   contactNo: Joi.string().required(),
+  //   itemCode: Joi.string().required(),
+  //   date: Joi.string().required(),
+  //   invoiceNo: Joi.number().required(),
+  //   itemCode: Joi.string().required(),
     
-  }),
+  // }),
 };
 
 const getGrv = {
