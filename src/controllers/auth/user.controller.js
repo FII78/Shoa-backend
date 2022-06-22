@@ -12,7 +12,7 @@ const cloudinary = require("../../utils/cloudinary");
  */
 
 const createUser = catchAsync(async (req, res) => {
-  const result = await cloudinary.uploader.upload(req.body.image);
+  const result = await cloudinary.uploader.upload(req.file.path);
 
   if (!result) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Image not uploaded');
