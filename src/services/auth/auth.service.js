@@ -23,6 +23,7 @@ const loginUserWithEmailAndPassword = async (email, password) => {
   const user = {
     name: `${employee.firstName} ${employee.middleName}`,
     cloudinary_id: result.cloudinary_id,
+    email: employee.email.office,
     employee: result.employee,
     id: result.id,
     image: result.image,
