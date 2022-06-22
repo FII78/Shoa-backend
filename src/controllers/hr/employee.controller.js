@@ -28,7 +28,7 @@ const getEmployees = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['firstName', 'middleName', 'lastName', 'email', 'id']);
   const options = pick(req.query, ['sortBy', 'page']);
   const result = await employeeService.queryEmployees(filter, options);
-  res.send(result);
+  res.send(result.results);
 });
 
 const getEmployee = catchAsync(async (req, res) => {
