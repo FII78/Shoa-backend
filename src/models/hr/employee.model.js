@@ -7,22 +7,18 @@ const employeeSchema = mongoose.Schema(
   {
     firstName: {
       type: String,
-      required: true,
       trim: true,
     },
     middleName: {
       type: String,
-      required: true,
       trim: true,
     },
     lastName: {
       type: String,
-      required: true,
       trim: true,
     },
     gender: {
       type: String,
-      required: true,
       enum: ['Male', 'Female'],
       trim: true,
     },
@@ -52,7 +48,6 @@ const employeeSchema = mongoose.Schema(
       },
       office: {
         type: String,
-        required: true,
         unique: true,
         trim: true,
         lowercase: true,
@@ -71,25 +66,22 @@ const employeeSchema = mongoose.Schema(
       mobile: {
         type: String,
         trim: true,
-        required: true,
 
       },
     },
     location: {
-      city: { type: String, required: true, trim: true },
-      subCity: { type: String, required: true, trim: true },
-      wereda: { type: String, required: true, trim: true },
-      kebele: { type: String, required: true, trim: true },
-      houseNo: { type: String, required: true, trim: true },
+      city: { type: String, trim: true },
+      subCity: { type: String, trim: true },
+      wereda: { type: String, trim: true },
+      kebele: { type: String, trim: true },
+      houseNo: { type: String, trim: true },
     },
     dob: {
       type: String,
-      required: true,
       trim: true,
     },
     doj: {
       type: String,
-      required: true,
       trim: true,
     },
     cv: {

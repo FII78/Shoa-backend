@@ -7,12 +7,10 @@ const salarySchema = mongoose.Schema(
     employee: {
       type: Schema.Types.ObjectId,
       ref: 'Employee',
-      required: true,
     },
     paymentMode: {
       type: String,
       enum: ['Bank', 'Cheque', 'Cash'],
-      required: true,
       trim: true,
     },
     bank: {
@@ -22,7 +20,6 @@ const salarySchema = mongoose.Schema(
     },
     salary: {
       type: String,
-      required: true,
       trim: true,
     },
     allowance: {

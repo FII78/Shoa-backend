@@ -6,32 +6,26 @@ const companySchema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
       trim: true,
     },
     abbreviation: {
       type: String,
-      required: true,
       trim: true,
     },
     website: {
       type: String,
-      required: true,
       trim: true,
     },
     telephone: {
       type: String,
-      required: true,
       trim: true,
     },
     fax: {
       type: String,
-      required: true,
       trim: true,
     },
     email: {
       type: String,
-      required: true,
       unique: true,
       trim: true,
       lowercase: true,
@@ -43,7 +37,6 @@ const companySchema = mongoose.Schema(
     },
     date: {
       type: String,
-      required: true,
       trim: true,
     },
   },

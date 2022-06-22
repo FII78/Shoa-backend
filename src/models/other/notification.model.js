@@ -6,13 +6,11 @@ const notificationSchema = mongoose.Schema(
   {
     message: {
       type: String,
-      required: true,
       trim: true,
     },
     role: [{
       type: String,
       enum: roles,
-      required: true,
       trim: true,
     }],
   },

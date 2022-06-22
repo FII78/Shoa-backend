@@ -9,7 +9,6 @@ const userSchema = mongoose.Schema(
   {
     password: {
       type: String,
-      required: true,
       trim: true,
       minlength: 8,
       validate(value) {
@@ -37,7 +36,6 @@ const userSchema = mongoose.Schema(
     employee: {
       type: Schema.Types.ObjectId,
       ref: 'Employee',
-      required: true
    },
   },
   {

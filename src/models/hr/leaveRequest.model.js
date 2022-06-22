@@ -7,31 +7,25 @@ const leaveRequestSchema = mongoose.Schema(
     employee: {
       type: Schema.Types.ObjectId,
       ref: 'Employee',
-      required: true,
     },
     leaveType: {
       type: String,
-      required: true,
       trim: true,
     },
     fromDate: {
       type: String,
-      required: true,
       trim: true,
     },
     toDate: {
       type: String,
-      required: true,
       trim: true,
     },
     reason: {
       type: String,
-      required: true,
       trim: true,
     },
     isExtendedLeave: {
       type: String,
-      required: true,
       enum: ['Yes', 'No'],
       trim: true,
     },

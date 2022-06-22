@@ -7,31 +7,25 @@ const educationSchema = mongoose.Schema(
     employee: {
       type: Schema.Types.ObjectId,
       ref: 'Employee',
-      required: true,
     },
     schoolName: {
       type: String,
-      required: true,
       trim: true,
     },
     degreeType: {
       type: String,
-      required: true,
       trim: true,
     },
     yearStarted: {
       type: String,
-      required: true,
       trim: true,
     },
     yearCompleted: {
       type: String,
-      required: true,
       trim: true,
     },
     certification: {
       type: String,
-      required: true,
     },
     cloudinary_id: {
       type: String,

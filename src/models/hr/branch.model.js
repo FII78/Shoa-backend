@@ -9,31 +9,27 @@ const branchSchema = mongoose.Schema(
     branchManager: {
       type: Schema.Types.ObjectId,
       ref: 'Employee',
-      required: true,
     },
     location: {
-      city: { type: String, required: true, trim: true },
-      subCity: { type: String, required: true, trim: true },
-      wereda: { type: String, required: true, trim: true },
-      kebele: { type: String, required: true, trim: true },
-      houseNo: { type: String, required: true, trim: true },
+      city: { type: String, trim: true },
+      subCity: { type: String, trim: true },
+      wereda: { type: String, trim: true },
+      kebele: { type: String, trim: true },
+      houseNo: { type: String, trim: true },
     },
     telephone: {
       mobile: {
         type: String,
-        required: true,
         trim: true,
       },
       office: {
         type: String,
-        required: true,
         trim: true,
       },
     },
     email: {
       personal: {
         type: String,
-        required: true,
         unique: true,
         trim: true,
         lowercase: true,
@@ -45,7 +41,6 @@ const branchSchema = mongoose.Schema(
       },
       office: {
         type: String,
-        required: true,
         unique: true,
         trim: true,
         lowercase: true,

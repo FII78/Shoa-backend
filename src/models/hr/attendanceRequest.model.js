@@ -7,16 +7,13 @@ const attendanceRequestSchema = mongoose.Schema(
     employee: {
       type: Schema.Types.ObjectId,
       ref: 'Employee',
-      required: true,
     },
     attendanceDate: {
       type: String,
-      required: true,
       trim: true,
     },
     reason: {
       type: String,
-      required: true,
       trim: true,
     },
     status: {

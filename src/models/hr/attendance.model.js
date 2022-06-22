@@ -7,26 +7,21 @@ const attendanceSchema = mongoose.Schema(
     employee: {
       type: Schema.Types.ObjectId,
       ref: 'Employee',
-      required: true,
     },
     attendanceDate: {
       type: String,
-      required: true,
       trim: true,
     },
     status: {
       type: String,
-      required: true,
       enum: ['Present', 'Absent'],
       trim: true,
     },
     startShift: {
       type: String,
-      required: true,
     },
     endShift: {
       type: String,
-      required: true,
     },
   },
   {

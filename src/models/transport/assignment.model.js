@@ -7,12 +7,10 @@ const assignmentSchema = mongoose.Schema(
     driver: {
       type: Schema.Types.ObjectId,
       ref: 'Employee',
-      required: true,
     },
     vehicle: {
       type: Schema.Types.ObjectId,
       ref: 'Vehicle',
-      required: true,
     },
     startDate: {
       type: String,

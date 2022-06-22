@@ -8,31 +8,25 @@ const insuranceSchema = mongoose.Schema(
     employee: {
       type: Schema.Types.ObjectId,
       ref: 'Employee',
-      required: true
     },
     insuranceType: {
       type: String,
       enum: insuranceTypes,
-      required: true,
     },
     insuranceProvider: {
       type: String,
-      required: true,
       trim: true,
     },
     agentName: {
       type: String,
-      required: true,
       trim: true,
     },
     agentPhonenumber: {
       type: String,
-      required: true,
       trim: true,
     },
     insuranceDocument: {
       type: String,
-      required: true,
     },
     cloudinary_id: {
       type: String,

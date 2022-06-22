@@ -70,96 +70,78 @@ const vehicleSchema = mongoose.Schema(
     insurance: {
       certificationNo: {
         type: String,
-        required: true,
         trim: true,
       },
       doi: {
         type: String,
-        required: true,
         trim: true,
       },
       nameOfInsured: {
         type: String,
-        required: true,
         trim: true,
       },
       nameOfInsurer: {
         type: String,
-        required: true,
         trim: true,
       },
       policyNo: {
         type: String,
-        required: true,
         trim: true,
       },
       mobileTel: {
         type: String,
-        required: true,
         trim: true,
       },
       officeTel: {
         type: String,
-        required: true,
         trim: true,
       },
     },
     fund: {
       fundNo: {
         type: String,
-        required: true,
         trim: true,
       },
       doi: {
         type: String,
-        required: true,
         trim: true,
       },
       expiryDate: {
         type: String,
-        required: true,
         trim: true,
       },
       receivedFrom: {
         type: String,
-        required: true,
         trim: true,
       },
       mobileTel: {
         type: String,
-        required: true,
         trim: true,
       },
       officeTel: {
         type: String,
-        required: true,
         trim: true,
       },
       amountNo: {
         type: String,
-        required: true,
         trim: true,
       },
       amountWord: {
         type: String,
-        required: true,
         trim: true,
       },
     },
     bolo: {
       receiptNo: {
         type: String,
-        required: true,
         trim: true,
       },
       inspectionDate: {
         type: String,
-        required: true,
         trim: true,
       },
       expiryDate: {
         type: String,
-        required: true,
         trim: true,
       },
     },

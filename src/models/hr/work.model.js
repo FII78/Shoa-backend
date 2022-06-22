@@ -8,21 +8,17 @@ const workSchema = mongoose.Schema(
     employee: {
       type: Schema.Types.ObjectId,
       ref: 'Employee',
-      required: true,
     },
     companyName: {
       type: String,
-      required: true,
       trim: true,
     },
     companyWebsite: {
       type: String,
-      required: true,
       trim: true,
     },
     companyEmail: {
       type: String,
-      required: true,
       unique: true,
       trim: true,
       lowercase: true,
@@ -34,7 +30,6 @@ const workSchema = mongoose.Schema(
     },
     personalEmail: {
       type: String,
-      required: true,
       unique: true,
       trim: true,
       lowercase: true,
@@ -46,7 +41,6 @@ const workSchema = mongoose.Schema(
     },
     previousDesignation: {
       type: String,
-      required: true,
       trim: true,
     },
   },

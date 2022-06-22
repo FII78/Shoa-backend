@@ -7,41 +7,33 @@ const travelRequestSchema = mongoose.Schema(
     employee: {
       type: Schema.Types.ObjectId,
       ref: 'Employee',
-      required: true,
     },
     travelPurpose: {
       type: String,
-      required: true,
       trim: true,
     },
     destination: {
       type: String,
-      required: true,
       trim: true,
     },
     fromDate: {
       type: String,
-      required: true,
       trim: true,
     },
     toDate: {
       type: String,
-      required: true,
       trim: true,
     },
     travelDays: {
         type: String,
-        required: true,
         trim: true,
       },
     travelJustification: {
       type: String,
-      required: true,
       trim: true,
     },
     estimatedBudget: {
       type: String,
-      required: true,
       trim: true,
     },
     status: {
