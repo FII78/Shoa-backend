@@ -18,6 +18,13 @@ module.exports.attendanceController = require('./hr/attendance.controller')
 module.exports.designationController = require('./hr/designation.controller')
 
 //inventory controllers
+module.exports.itemController = require('./inventory/item.controller');
+module.exports.productController = require('./inventory/product.controller');
+module.exports.grvController = require('./inventory/grv.controller');
+module.exports.variantController = require('./inventory/variant.controller');
+module.exports.uomController = require('./inventory/uom.controller');
+module.exports.supplierController = require('./inventory/supplier.controller');
+
 
 //transport controllers
 module.exports.vehicleController = require('./transport/vehicle.controller');

@@ -5,6 +5,15 @@ const docsRoute = require('./other/docs.route');
 const notifRoute = require('./other/notification.route');
 const config = require('../config/config');
 
+
+//inventory routes
+const itemRoute = require('./inventory/item.route');
+const productRoute = require('./inventory/product.route');
+const grvRoute = require('./inventory/grv.route');
+const variantRoute = require('./inventory/variant.route');
+const uomRoute = require('./inventory/uom.route');
+const supplierRoute = require('./inventory/supplier.route');
+
 //hr routes
 const employeeRoute = require('./hr/employee.route');
 const companyRoute = require('./hr/company.route');
@@ -32,6 +41,30 @@ const defaultRoutes = [
   {
     path: '/auth',
     route: authRoute,
+  },
+  {
+    path: '/items',
+    route: itemRoute,
+  },
+  {
+    path: '/products',
+    route: productRoute,
+  },
+  {
+    path: '/supplier',
+    route: supplierRoute,
+  },
+  {
+    path: '/grv',
+    route: grvRoute,
+  },
+  {
+    path: '/uom',
+    route: uomRoute,
+  },
+  {
+    path: '/variant',
+    route: variantRoute,
   },
   {
     path: '/users',

@@ -19,3 +19,12 @@ module.exports.designationValidation = require('./hr/designation.validation');
 //transport validations
 module.exports.vehicleValidation = require('./transport/vehicle.validation');
 module.exports.assignmentValidation = require('./transport/assignment.validation');
+module.exports.vehicleValidation = require('./transport/vehicle.validation');
+
+//inventory validation
+module.exports.itemValidation = require('./inventory/item.validation');
+module.exports.productValidation = require('./inventory/product.validation');
+module.exports.grvValidation = require('./inventory/grv.validation');
+module.exports.variantValidation = require('./inventory/variant.validation');
+module.exports.uomValidation = require('./inventory/uom.validation');
+module.exports.supplierValidation = require('./inventory/supplier.validation');

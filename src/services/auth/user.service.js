@@ -1,6 +1,7 @@
 const httpStatus = require('http-status');
 const { User, Employee } = require('../../models');
 const ApiError = require('../../utils/ApiError');
+const logger = require('../../config/logger');
 
 /**
  * Create a user
@@ -9,11 +10,11 @@ const ApiError = require('../../utils/ApiError');
  */
 const createUser = async (userbody) => {
   const employee = await Employee.findById({_id: userbody.employee})
-
+  
   if (await !Employee.isEmailTaken(employee.email.office)) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Email does not exist');
   }
-
+  logger.info(employee)
   const user = await User.create(userbody);
   employee.user = user;
   await employee.save();
