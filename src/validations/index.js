@@ -16,3 +16,12 @@ module.exports.travelRequestValidation = require('./hr/travelRequest.validation'
 
 //transport validations
 module.exports.vehicleValidation = require('./vehicle.validation');
+
+//inventory validation
+
+module.exports.itemValidation = require('./inventory/item.validation');
+module.exports.productValidation = require('./inventory/product.validation');
+module.exports.grvValidation = require('./inventory/grv.validation');
+module.exports.variantValidation = require('./inventory/variant.validation');
+module.exports.uomValidation = require('./inventory/uom.validation');
+module.exports.supplierValidation = require('./inventory/supplier.validation');
