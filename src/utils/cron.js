@@ -9,5 +9,3 @@ var notifications = new CronJob(
 	true,
 	'America/Los_Angeles'
 );
-
-// module.exports = { notifications }

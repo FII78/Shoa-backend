@@ -22,5 +22,3 @@ module.exports.Designation = require('./hr/designation.model');
 //transport models
 module.exports.Vehicle = require('./transport/vehicle.model');
 module.exports.Assignment = require('./transport/assignment.model');
-
-

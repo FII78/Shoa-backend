@@ -59,8 +59,3 @@ module.exports = {
   sendVerificationEmail,
   verifyEmail,
 };
-
-
-
-
-

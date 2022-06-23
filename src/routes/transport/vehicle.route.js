@@ -17,19 +17,6 @@ router
   .patch(auth('manageLogistics'), validate(vehicleValidation.updateVehicle), vehicleController.updateVehicle)
   .delete(auth('manageLogistics'), validate(vehicleValidation.deleteVehicle), vehicleController.deleteVehicle);
 
-// router.post('/', validate(vehicleValidation.createVehicle), vehicleController.createVehicle);
-// router.get('/', validate(vehicleValidation.getVehicles), vehicleController.getVehicles);
-
-// router.get(auth('getUsers/:vehicleId'), validate(vehicleValidation.getVehicle), vehicleController.getVehicle);
-// router.patch(auth('manageVehicles/:vehicleId'), validate(vehicleValidation.updateVehicle), vehicleController.updateVehicle);
-// router.delete(auth('manageVehicles/:vehicleId'), validate(vehicleValidation.deleteVehicle), vehicleController.deleteVehicle);
-
-// router
-//   .route('/:VehicleId')
-//   .get('getVehicle', validate(vehicleValidation.getVehicle), vehicleController.getVehicle)
-//   .patch('manageVehicles', validate(vehicleValidation.updateVehicle), vehicleController.updateVehicle)
-//   .delete('manageVehicles', validate(vehicleValidation.deleteVehicle), vehicleController.deleteVehicle);
-
 module.exports = router;
 
 /**

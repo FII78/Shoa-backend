@@ -22,5 +22,3 @@ module.exports.designationController = require('./hr/designation.controller')
 //transport controllers
 module.exports.vehicleController = require('./transport/vehicle.controller');
 module.exports.assignmentController = require('./transport/assignment.controller');
-
-
