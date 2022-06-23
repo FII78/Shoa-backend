@@ -10,7 +10,7 @@ const imageUpload = multer({ storage: imageStorage });
 const router = express.Router();
 
 router.route('/')
-  .post(auth('manageEmployees'), imageUpload.single("file"), validate(employeeValidation.createEmployee), employeeController.createEmployee)
+  .post(imageUpload.single("file"), validate(employeeValidation.createEmployee), employeeController.createEmployee)
   .get(auth('manageEmployees'), validate(employeeValidation.getEmployees), employeeController.getEmployees);
 
 router
